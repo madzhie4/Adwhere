@@ -7,7 +7,7 @@ function VehicleRegistrationForm() {
     gender: '',
     city: '',
     zip: '',
-    province: '',
+    province: '', // Updated state to include province
     address: ''
   });
 
@@ -31,11 +31,6 @@ function VehicleRegistrationForm() {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Add your submission logic here
-  };
-
-  const handleHomeButtonClick = () => {
-    // Replace with logic to handle home button click (e.g., navigate to home page)
-    console.log('Home button clicked');
   };
 
   return (
@@ -111,7 +106,15 @@ function VehicleRegistrationForm() {
             onChange={handleChange}
           >
             <option value="">Select Province</option>
-            {/* Add province options here */}
+            <option value="Eastern Cape">Eastern Cape</option>
+            <option value="Free State">Free State</option>
+            <option value="Gauteng">Gauteng</option>
+            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+            <option value="Limpopo">Limpopo</option>
+            <option value="Mpumalanga">Mpumalanga</option>
+            <option value="Northern Cape">Northern Cape</option>
+            <option value="North West">North West</option>
+            <option value="Western Cape">Western Cape</option>
           </select>
         </div>
         <div className="form-group">
@@ -126,7 +129,7 @@ function VehicleRegistrationForm() {
         <button type="submit" className="register-button">Register</button>
       </form>
       <footer>
-        <button className="home-button" onClick={handleHomeButtonClick}>🏠</button>
+        <button className="home-button">🏠</button>
       </footer>
     </div>
   );
