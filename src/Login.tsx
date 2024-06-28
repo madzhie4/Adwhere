@@ -2,7 +2,7 @@
 
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import { FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
-import './Login.css';
+import './index.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -78,6 +78,8 @@ const Login = () => {
 
   return (
     <div className="login-container">
+        <h1>Profile</h1>
+
       {!otpSent ? (
         <>
           <div className="input-container">
