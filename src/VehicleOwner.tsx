@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import './index.css'; // Assuming you have created this CSS file
+import './index.css'; 
 
 function VehicleRegistrationForm() {
   const [formData, setFormData] = useState({
@@ -33,14 +33,20 @@ function VehicleRegistrationForm() {
     // Add your submission logic here
   };
 
+  const handleHomeButtonClick = () => {
+    // Replace with logic to handle home button click (e.g., navigate to home page)
+    console.log('Home button clicked');
+  };
+
   return (
     <div className="registration-container">
       <header>
         <div className="menu-icon">☰</div>
         <h1>Vehicle owner</h1>
-        <div className="search-icon">🔍</div>
+        
       </header>
       <h2>Registration form</h2>
+      <h4>Personal Information</h4>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="birthDate">Birth date</label>
@@ -76,6 +82,7 @@ function VehicleRegistrationForm() {
           </div>
         </div>
         <div className="form-group">
+          <h4>Location</h4>
           <label htmlFor="city">City</label>
           <input
             type="text"
@@ -119,7 +126,7 @@ function VehicleRegistrationForm() {
         <button type="submit" className="register-button">Register</button>
       </form>
       <footer>
-        <button className="home-button">🏠</button>
+        <button className="home-button" onClick={handleHomeButtonClick}>🏠</button>
       </footer>
     </div>
   );
