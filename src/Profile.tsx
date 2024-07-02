@@ -1,6 +1,6 @@
 // src/Profile.tsx
 import React, { useState } from 'react';
-import './Profile.css';
+import './index.css';
 import infoIcon from './icons/info.png';
 import menuIcon from './icons/menu.png';
 

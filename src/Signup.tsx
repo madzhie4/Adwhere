@@ -1,6 +1,6 @@
-import './Signup.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import './index.css'; // Adjust the path based on your project structure
 
 interface FormData {
     name: string;
@@ -40,7 +40,7 @@ const Signup: React.FC = () => {
 
     return (
         <div className="signup-form">
-            <h2>Signup</h2>
+            <h2>Create Account</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name</label>

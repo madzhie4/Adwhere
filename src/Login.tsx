@@ -78,7 +78,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-        <h1>Profile</h1>
+        <h1>Login</h1>
 
       {!otpSent ? (
         <>
