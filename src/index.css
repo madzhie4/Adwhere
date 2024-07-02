@@ -1,5 +1,5 @@
 html, body, #root {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   height: 100%;
   width: 100%;
@@ -38,8 +38,8 @@ code {
 }
 
 .content-wrapper {
-  width: 60%; /* Set width to 60% to create 20% margin on each side */
-  max-width: 600px; /* Optional: set a max-width for larger screens */
+  width: 100%; /* Set width to 60% to create 20% margin on each side */
+  max-width: 1000px; /* Optional: set a max-width for larger screens */
 }
 
 header {
