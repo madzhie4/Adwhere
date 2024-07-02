@@ -1,0 +1,50 @@
+/* src/Profile.css */
+.profile-container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.profile-container h2 {
+    margin-bottom: 20px;
+}
+
+.profile-option {
+    position: relative;
+    display: flow;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 170px;
+    height: 50px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.info-icon {
+    width: 16px; /* Adjust size */
+    height: 16px; /* Adjust size */
+    position: relative;
+    top: -8px;  /* Adjust position to be slightly above */
+    right: -8px; /* Adjust position to be to the right */
+    cursor: pointer;
+}
+
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}

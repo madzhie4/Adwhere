@@ -1,0 +1,95 @@
+/* src/ClientRegistration.css */
+.registration-container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.registration-title {
+    margin-bottom: 20px;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.gender-options {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5px;
+}
+
+.submit-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: darkblue;
+}
+
+.home-button {
+
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+
+}
+.home-button:hover{
+    background-color: darkblue;
+}
+.form-row{
+    position: relative;
+    display: flow ;
+
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
