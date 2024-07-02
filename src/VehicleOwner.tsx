@@ -34,6 +34,7 @@ function VehicleRegistrationForm() {
   };
 
   return (
+    
     <div className="registration-container">
       <header>
         <div className="menu-icon">☰</div>

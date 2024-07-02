@@ -1,4 +1,4 @@
-html, body {
+html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -6,31 +6,48 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f0f0f0;
+}
+
+body {
+  background-color: #007bff;
+}
+
+#root {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.registration-container {
+.Welcome-container, .registration-container, .login-container, .signup-form {
+  flex: 1;
   width: 100%;
-  height: 100%;
-  background-color: #1e90ff;
+  background-color: #007bff;
   color: white;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  align-items: center; /* Center content horizontally */
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px 0; /* Remove horizontal padding */
+  overflow-y: auto;
+  min-height: 100vp;
+}
+
+.content-wrapper {
+  width: 60%; /* Set width to 60% to create 20% margin on each side */
+  max-width: 600px; /* Optional: set a max-width for larger screens */
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 0;
+  width: 100%;
   background-color: #0066cc;
 }
 
@@ -39,21 +56,25 @@ header {
 }
 
 h1 {
-  font-size: 20px;
-  margin: 0;
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
 }
 
 h2 {
   font-size: 18px;
-  margin: 20px 0 10px 20px;
+  margin: 15px 0;
 }
 
 form {
-  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.form-group {
+.form-group, .input-container {
   margin-bottom: 15px;
+  width: 100%;
 }
 
 label {
@@ -64,14 +85,17 @@ label {
 
 input[type="text"],
 input[type="date"],
+input[type="email"],
+input[type="password"],
 select,
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
   background-color: white;
   color: #333;
+  font-size: 16px;
 }
 
 .radio-group {
@@ -88,12 +112,12 @@ input[type="radio"] {
   margin-right: 5px;
 }
 
-/* Location specific styles */
 .location-section {
   background-color: #4da6ff;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .location-section .form-group {
@@ -115,10 +139,12 @@ input[type="radio"] {
   font-weight: bold;
 }
 
-.register-button {
+.register-button,
+.sign-in-button,
+.verify-otp-button {
   width: 100%;
   padding: 15px;
-  background-color: #4CAF50;
+  background-color: #00a86b;
   color: white;
   border: none;
   border-radius: 5px;
@@ -129,8 +155,9 @@ input[type="radio"] {
 
 footer {
   margin-top: auto;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
+  width: 100%;
 }
 
 .home-button {
@@ -141,89 +168,32 @@ footer {
   cursor: pointer;
 }
 
-/* index.css */
-.login-container {
-  background-color: #007bff;
-  color: white;
-  width: 100%;
-  height: 100%;
-  border-radius: 0; /* Remove border radius to fill the entire width */
-  padding: 20px;
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-h1 {
-  font-size: 24px;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.input-container {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
-}
-
 .input-wrapper {
   position: relative;
-}
-
-input {
   width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: white;
-  color: #333;
 }
 
-input::placeholder {
+.input-icon, .password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   color: #999;
 }
 
 .input-icon {
-  position: absolute;
   left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
 }
 
 .password-toggle-icon {
-  position: absolute;
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
   cursor: pointer;
-}
-
-.sign-in-button,
-.verify-otp-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #00a86b;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
 }
 
 .otp-input {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  width: 100%;
 }
 
 .otp-input input {
@@ -236,4 +206,88 @@ input::placeholder {
 
 .otp-input input:last-child {
   margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    width: 80%; /* Increase width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    width: 90%; /* Further increase width on very small screens */
+  }
+
+  .registration-container, .login-container {
+    padding: 15px 0;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .otp-input input {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+/* Welcome container*/
+
+.Welcome-container h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 100px;
+  font-weight: bold;
+}
+
+.Welcome-container h1 span {
+  display: block;
+  font-size: 48px;
+  margin-top: 10px;
+}
+
+.Welcome-container button {
+  width: 60%;
+  max-width: 300px;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #555555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Welcome-container button:hover {
+  background-color: #444444;
+}
+
+/* Modify existing styles */
+.content-wrapper {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ... rest of the existing styles ... */
+
+@media (max-width: 480px) {
+  .Welcome-container h1 {
+    font-size: 28px;
+  }
+
+  .Welcome-container h1 span {
+    font-size: 36px;
+  }
+
+  .Welcome-container button {
+    width: 80%;
+  }
 }
