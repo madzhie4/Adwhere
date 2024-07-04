@@ -39,7 +39,7 @@ code {
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
-  margin: 20px;
+  margin: 0;
   overflow-y: auto;
   max-height: 100vh;
 }
@@ -52,6 +52,8 @@ code {
   gap: 20px;
   padding: 0 20px; /* Ensure padding on the sides to prevent horizontal scroll */
   box-sizing: border-box; /* Include padding in the element's width */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
 }
 
 /* Header Styles */
@@ -147,6 +149,7 @@ input[type="radio"] {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  align-items: center;
 }
 
 .Welcome-container button:hover,
@@ -300,6 +303,7 @@ footer {
   
   .Welcome-container button {
     width: 100%;
+    align-items: center;
   }
 }
 
