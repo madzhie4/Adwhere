@@ -1,11 +1,13 @@
+/* Global Styles */
 html, body, #root {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 body {
@@ -22,26 +24,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.Welcome-container, .registration-container, .login-container, .signup-form {
+/* Common Container Styles */
+.Welcome-container,
+.registration-container,
+.login-container,
+.signup-form {
   flex: 1;
   width: 100%;
   background-color: #007bff;
-  color: black;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
+  align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: 20px 0; /* Remove horizontal padding */
+  padding: 20px;
+  margin: 20px;
   overflow-y: auto;
-  min-height: 100vp;
+  max-height: 100vh;
 }
 
 .content-wrapper {
-  width: 100%; /* Set width to 60% to create 20% margin on each side */
-  max-width: 1000px; /* Optional: set a max-width for larger screens */
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px; /* Ensure padding on the sides to prevent horizontal scroll */
+  box-sizing: border-box; /* Include padding in the element's width */
 }
 
+/* Header Styles */
 header {
   display: flex;
   justify-content: space-between;
@@ -51,30 +64,36 @@ header {
   background-color: #0066cc;
 }
 
-.menu-icon, .search-icon {
+.menu-icon,
+.search-icon {
   font-size: 24px;
 }
 
+/* Typography */
 h1 {
   font-size: 24px;
   text-align: center;
-  margin: 20px 0;
+  margin: 0;
 }
 
 h2 {
   font-size: 18px;
-  margin: 15px 0;
+  margin: 0;
 }
 
+/* Form Styles */
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-.form-group, .input-container {
-  margin-bottom: 15px;
+.form-group,
+.input-container {
   width: 100%;
+  padding: 0 20px; /* Add padding to ensure consistent spacing */
+  box-sizing: border-box; /* Include padding in the element's width */
 }
 
 label {
@@ -96,6 +115,7 @@ textarea {
   background-color: white;
   color: #616161;
   font-size: 16px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .radio-group {
@@ -112,35 +132,12 @@ input[type="radio"] {
   margin-right: 5px;
 }
 
-.location-section {
-  background-color: #4da6ff;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.location-section .form-group {
-  margin-bottom: 10px;
-}
-
-.location-section input,
-.location-section select {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.location-section input::placeholder,
-.location-section select::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.location-section label {
-  font-weight: bold;
-}
-
+/* Button Styles */
 .register-button,
-.sign-in-button {
+.sign-in-button,
+.Welcome-container button,
+.verify-otp-button button,
+.signup-form button[type="submit"] {
   width: 100%;
   padding: 15px;
   background-color: black;
@@ -149,30 +146,29 @@ input[type="radio"] {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 20px;
+  transition: background-color 0.3s ease;
 }
 
+.Welcome-container button:hover,
+.signup-form button[type="submit"]:hover {
+  background-color: #444444;
+}
+
+/* Footer Styles */
 footer {
-  margin-top: auto;
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
   width: 100%;
 }
 
-.home-button {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: #3f51b5;
-  cursor: pointer;
-}
-
+/* Input Styles */
 .input-wrapper {
   position: relative;
   width: 100%;
 }
 
-.input-icon, .password-toggle-icon {
+.input-icon,
+.password-toggle-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -188,10 +184,10 @@ footer {
   cursor: pointer;
 }
 
+/* OTP Input Styles */
 .otp-input {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
   width: 100%;
 }
 
@@ -207,38 +203,9 @@ footer {
   margin-right: 0;
 }
 
-@media (max-width: 768px) {
-  .content-wrapper {
-    width: 80%; /* Increase width on smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .content-wrapper {
-    width: 90%; /* Further increase width on very small screens */
-  }
-
-  .registration-container, .login-container {
-    padding: 15px 0;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  .otp-input input {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-  }
-}
-
-/* Welcome container*/
-
+/* Welcome Container Specific Styles */
 .Welcome-container h1 {
   font-size: 36px;
-  text-align: center;
-  margin-bottom: 100px;
   font-weight: bold;
 }
 
@@ -248,170 +215,104 @@ footer {
   margin-top: 10px;
 }
 
-.Welcome-container button, .verify-otp-button button {
-  width: 60%;
+.Welcome-container button,
+.verify-otp-button button {
   max-width: 300px;
-  padding: 15px;
   margin: 10px 0;
-  background-color: black;
-  color: #3f51b5;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.Welcome-container button:hover {
-  background-color: #444444;
-}
-
-/* Modify existing styles */
-.content-wrapper {
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.adwhere .highlight{
-  color:white;
-}
-
-@media (max-width: 480px) {
-  .Welcome-container h1 {
-    font-size: 28px;
-  }
-
-  .Welcome-container h1 span {
-    font-size: 36px;
-  }
-
-  .Welcome-container button {
-    width: 80%;
-  }
-}
-
-/*Create Account*/
-
+/* Create Account Specific Styles */
 .signup-form {
-    background-color: #007bff; /* Blue background */
-    color: white;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .signup-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.signup-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.signup-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    display: block;
-}
-
-.signup-form input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .password-container input {
-    width: 100%; /* Ensure it takes up the full width */
-    padding-right: 40px; /* Adjust to accommodate the toggle button */
+  width: 100%;
+  padding-right: 40px;
 }
 
 .password-toggle {
-    position: absolute;
-    right: 10px;
-    background: none;
-    border: none;
-    color: gray;
-    cursor: pointer;
-    font-size: 18px;
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  font-size: 18px;
 }
 
-.signup-form button[type="submit"] {
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.signup-form button[type="submit"]:hover {
-    background-color: #555;
-}
-
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .signup-form {
-        padding: 15px;
-        max-width: 100%;
-    }
-
-    .signup-form h2 {
-        font-size: 20px;
-    }
-
-    .signup-form input {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .password-toggle {
-        font-size: 16px;
-    }
-
-    .signup-form button[type="submit"] {
-        padding: 8px;
-        font-size: 16px;
-    }
+  .content-wrapper {
+    width: 90%;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+  
+  .Welcome-container h1 {
+    font-size: 28px;
+  }
+  
+  .Welcome-container h1 span {
+    font-size: 36px;
+  }
+  
+  .otp-input input {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 480px) {
-    .signup-form {
-        padding: 10px;
-    }
+  .content-wrapper {
+    width: 95%;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea,
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .Welcome-container button {
+    width: 100%;
+  }
+}
 
-    .signup-form h2 {
-        font-size: 18px;
-    }
-
-    .signup-form input {
-        padding: 6px;
-        font-size: 12px;
-    }
-
-    .password-toggle {
-        font-size: 14px;
-    }
-
-    .signup-form button[type="submit"] {
-        padding: 6px;
-        font-size: 14px;
-    }
+@media (max-height: 600px) {
+  .Welcome-container h1 {
+    font-size: 24px;
+  }
+  
+  .Welcome-container h1 span {
+    font-size: 32px;
+  }
+  
+  form {
+    gap: 10px;
+  }
 }
