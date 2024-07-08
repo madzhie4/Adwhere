@@ -11,7 +11,7 @@ html, body, #root {
 }
 
 body {
-  background-color: #007bff;
+  background-color: black;
 }
 
 #root {
@@ -31,7 +31,7 @@ code {
 .signup-form {
   flex: 1;
   width: 100%;
-  background-color: #007bff;
+  background-color: black;
   color: white;
   display: flex;
   flex-direction: column;
@@ -43,6 +43,13 @@ code {
   overflow-y: auto;
   max-height: 100vh;
 }
+.adwhere{
+  color: #007bff;
+}
+.adwhere .highlight{
+  color:white;
+}
+
 
 .content-wrapper {
   width: 100%;
@@ -59,15 +66,21 @@ code {
 /* Header Styles */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px 0;
   width: 100%;
-  background-color: #0066cc;
+  background-color: black;
 }
 
-.menu-icon,
-.search-icon {
+.heading h1{
+  color: #ffeb3b;
+  font-size: 40px; 
+}
+
+.menu-icon {
+  position: absolute;
+  left: 10px;
   font-size: 24px;
 }
 
@@ -96,6 +109,8 @@ form {
   width: 100%;
   padding: 0 20px; /* Add padding to ensure consistent spacing */
   box-sizing: border-box; /* Include padding in the element's width */
+  /* display: flex; */
+  justify-content: flex-start; 
 }
 
 label {
@@ -142,8 +157,8 @@ input[type="radio"] {
 .signup-form button[type="submit"] {
   width: 100%;
   padding: 15px;
-  background-color: black;
-  color: white;
+  background-color: #007bff;
+  color: #f4f4f7;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -166,8 +181,25 @@ footer {
 
 /* Input Styles */
 .input-wrapper {
+  display: flex;
+  align-items: center;
   position: relative;
+}
+
+.input-wrapper .Input-Placeholder {
+  padding-left: 40px; /* Adjust this value to move the text cursor */
+  box-sizing: border-box; /* Ensure padding is included in the element's width */
   width: 100%;
+}
+
+.input-wrapper .input-icon {
+  position: absolute;
+  left: 10px; /* Adjust the position of the icon */
+  pointer-events: none; /* Ensure the icon does not block the input */
+}
+
+.Input-Placeholder::placeholder {
+  margin-left: 0; /* No additional margin for placeholder */
 }
 
 .input-icon,
@@ -221,7 +253,12 @@ footer {
 .Welcome-container button,
 .verify-otp-button button {
   max-width: 300px;
-  margin: 10px 0;
+  margin: 50px 0;
+}
+
+.sign-in-button {
+  max-width: 300px;
+  margin: 30px 0;
 }
 
 /* Create Account Specific Styles */
@@ -260,24 +297,47 @@ footer {
   font-size: 18px;
 }
 
+/* New Styles for 3/4 and 1/4 layout */
+.page-container {
+  display: flex;
+  height: 100vh;
+}
+
+.registration-container {
+  flex: 3;
+  background-color: black; /* or any color you prefer */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+.company-image-container {
+  flex: 1;
+  background: url('download.jpg') no-repeat center center; /* Replace with your image URL */
+  background-size: cover;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .content-wrapper {
     width: 90%;
   }
-  
+
   h1 {
     font-size: 20px;
   }
-  
+
   .Welcome-container h1 {
     font-size: 28px;
   }
-  
+
   .Welcome-container h1 span {
     font-size: 36px;
   }
-  
+
   .otp-input input {
     width: 30px;
     height: 30px;
@@ -289,7 +349,7 @@ footer {
   .content-wrapper {
     width: 95%;
   }
-  
+
   input[type="text"],
   input[type="date"],
   input[type="email"],
@@ -300,7 +360,7 @@ footer {
     padding: 10px;
     font-size: 14px;
   }
-  
+
   .Welcome-container button {
     width: 100%;
     align-items: center;
@@ -311,11 +371,11 @@ footer {
   .Welcome-container h1 {
     font-size: 24px;
   }
-  
+
   .Welcome-container h1 span {
     font-size: 32px;
   }
-  
+
   form {
     gap: 10px;
   }

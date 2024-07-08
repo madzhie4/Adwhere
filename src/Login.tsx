@@ -87,6 +87,7 @@ const Login = () => {
             <div className="input-wrapper">
               <FaEnvelope className="input-icon" />
               <input
+                className='Input-Placeholder'
                 type="email"
                 placeholder="Enter your email"
                 value={email}
