@@ -74,6 +74,7 @@ html, body {
     cursor: pointer;
     font-size: 16px;
 }
+
 .profile-button-four {
     display: flex;
     align-items: center;
@@ -92,4 +93,25 @@ html, body {
 .info-icon {
     font-size: 18px;
     margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+
+    .profile-page {
+        padding: 10px;
+    }
+
+    .profile-button-one,
+    .profile-button-two,
+    .profile-button-three,
+    .profile-button-four {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .menu-icon,
+    .info-icon {
+        font-size: 20px;
+    }
 }
