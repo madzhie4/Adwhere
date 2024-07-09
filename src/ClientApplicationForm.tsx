@@ -1,8 +1,13 @@
+//Listing of dependencies and declaring
+
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './ClientApplicationForm.css';
 import infoIcon from './icons/info-circle.png';
 import cartIcon from './icons/cart-add.png';
+import menuIcon from './icons/menu.png';
+import d_arrowIcon from './icons/down-arrow.png';
+import Header from './components/Header';
 
 
 const MainForm: React.FC = () => {
@@ -19,24 +24,7 @@ const MainForm: React.FC = () => {
 
   return (
     <div className="app">
-      <header>
-        <nav className="navbar">
-          <div className="logo">Ad<b>w</b>here</div>
-          <div className={`menu-toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-            <div className="hamburger"></div>
-          </div>
-          <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-            <li className="dropdown">
-              <a href="#applications" className="dropbtn">Applications</a>
-              <div className="dropdown-content">
-                <a href="#driver">Driver</a>
-                <a href="#client">Client</a>
-                <a href="#vehicle">Vehicle</a>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
       <main>
         <div className="application-title">
             <h1><em className="title-client">Client</em> Application Form</h1>
@@ -90,8 +78,13 @@ const MainForm: React.FC = () => {
                 </span>
             </div>
 
-            <label htmlFor="fileUpload">Upload file</label>
-            <input type="file" id="fileUpload" name="fileUpload" />
+            <div className="file-upload-wrapper">
+              <label htmlFor="fileUpload" className="file-upload-label">
+                Upload file
+              </label>
+              <input type="file" id="fileUpload" name="fileUpload" className="file-upload-input" />
+            </div>
+
 
             <div className="button-container">
               <button type="submit">Save</button>
