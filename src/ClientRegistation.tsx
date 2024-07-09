@@ -1,6 +1,6 @@
 import './ClientRegistration.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { FaBars, FaHome } from 'react-icons/fa';
+import {FaBars, FaChevronDown, FaHome} from 'react-icons/fa';
 
 interface FormData {
     businessName: string;
@@ -69,7 +69,12 @@ const RegistrationForm: React.FC = () => {
                 <h1>Client</h1>
             </header>
             <div className="registration-form-content">
-                <h1>Registration form</h1>
+                <div className="title-container">
+                    <h2>Application form</h2>
+                    <button className="dropdown-button">
+                        Applications <FaChevronDown/>
+                    </button>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="businessName">Business, Organization, Artist, Channel, etc. name</label>
@@ -82,7 +87,7 @@ const RegistrationForm: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.businessName && <span className="error">{errors.businessName}</span>}
+                        {errors.businessName && <div className="error">{errors.businessName}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="clientName">Client representative name</label>
@@ -95,7 +100,7 @@ const RegistrationForm: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.clientName && <span className="error">{errors.clientName}</span>}
+                        {errors.clientName && <div className="error">{errors.clientName}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone">Phone</label>
@@ -108,7 +113,7 @@ const RegistrationForm: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.phone && <span className="error">{errors.phone}</span>}
+                        {errors.phone && <div className="error">{errors.phone}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="clientSurname">Client representative surname</label>
@@ -121,7 +126,7 @@ const RegistrationForm: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.clientSurname && <span className="error">{errors.clientSurname}</span>}
+                        {errors.clientSurname && <div className="error">{errors.clientSurname}</div>}
                     </div>
                     <div className="form-group">
                         <label>Gender</label>
@@ -158,7 +163,7 @@ const RegistrationForm: React.FC = () => {
                             />
 
                         </div>
-                        {errors.gender && <span className="error">{errors.gender}</span>}
+                        {errors.gender && <div className="error">{errors.gender}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="city">City</label>
@@ -171,7 +176,7 @@ const RegistrationForm: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.city && <span className="error">{errors.city}</span>}
+                        {errors.city && <div className="error">{errors.city}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="zip">ZIP</label>
@@ -184,7 +189,7 @@ const RegistrationForm: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.zip && <span className="error">{errors.zip}</span>}
+                        {errors.zip && <div className="error">{errors.zip}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="province">Province</label>
@@ -206,7 +211,7 @@ const RegistrationForm: React.FC = () => {
                             <option value="North West">North West</option>
                             <option value="Western Cape">Western Cape</option>
                         </select>
-                        {errors.province && <span className="error">{errors.province}</span>}
+                        {errors.province && <div className="error">{errors.province}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="address">Address</label>
@@ -219,10 +224,10 @@ const RegistrationForm: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.address && <span className="error">{errors.address}</span>}
+                        {errors.address && <div className="error">{errors.address}</div>}
                     </div>
 
-                        <button type="submit">Register</button>
+                    <button type="submit">Register</button>
 
                 </form>
             </div>

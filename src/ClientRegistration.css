@@ -41,6 +41,31 @@ html, body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.title-container h2{
+    color: #e8c530;
+}
+
+.dropdown-button {
+    background-color: #010202; /* Black background for button */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.dropdown-button:hover {
+    background-color: #333; /* Darker background on hover */
+}
 .registration-form-content h1 {
     text-align: center;
     color: #e91e63; /* Pink color for the title */
@@ -112,6 +137,7 @@ button:hover {
 }
 
 @media (max-width: 600px) {
+
     .registration-form-page {
         padding: 10px;
     }
@@ -129,4 +155,5 @@ button:hover {
         padding: 8px;
         font-size: 0.9rem;
     }
+
 }
