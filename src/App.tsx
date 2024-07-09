@@ -9,7 +9,8 @@ import Login from './Login';
 import ClientRegistation from './ClientRegistation';
 import VehicleOwner from './VehicleOwner';
 import ClientApplicationForm from './ClientApplicationForm';
-
+import VehicleFurbisherA1 from './VehicleFurbisherA1';
+import Furbisher from './Furbisher';
 function MainApp() {
   return (
     <Router>
@@ -22,6 +23,8 @@ function MainApp() {
         <Route path="/ClientRegistation" element={<ClientRegistation />} />
         <Route path="/VehicleOwner" element={<VehicleOwner />} />
         <Route path="/ClientApplicationForm" element={<ClientApplicationForm />} />
+        <Route path="/VehicleFurbisherA1" element={<VehicleFurbisherA1 />} />
+        <Route path="/Furbisher" element={<Furbisher />} />
       </Routes>
     </Router>
   );

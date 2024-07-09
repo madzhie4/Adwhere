@@ -11,7 +11,7 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background: #1c7ce2;
+    background: #000;
   }
   
   header, footer {
@@ -149,9 +149,6 @@ body {
   }  */
 
 
-
-
-
   .dropbtn{
     border: 1px solid #000;
     border-radius: 5px;
@@ -189,8 +186,6 @@ body {
       display: none; /* Hide dropdown in mobile view */
     }
   }
-
-
 
   .app {
     display: flex;
@@ -300,6 +295,10 @@ body {
     color: purple;
   }
 
+  h1 {
+    color: #ffffff;
+  }
+
   .application-title{
     text-align: center;
   }
@@ -342,17 +341,12 @@ body {
   legend {
     font-weight: bold;
   }
-
   
-  
-.radio-group .radio-item{
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-
-  
+  .radio-group .radio-item{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
   .items-container {
     display: flex;
@@ -429,10 +423,6 @@ body {
   
   button:hover {
     opacity: 0.8;
-  }
-
-  .apply-button {
-    margin-left: auto;
   }
 
   .footer {
