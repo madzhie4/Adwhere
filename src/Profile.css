@@ -1,50 +1,95 @@
-/* src/Profile.css */
-.profile-container {
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #000000; /* Black background for the entire page */
+    color: #faf9f9; /* Text color */
+}
+.profile-page {
+    max-width: 400px;
+    margin: auto;
+    padding: 1rem;
     text-align: center;
-    background-color: white;
     padding: 20px;
-    position: relative;
+    background-color: #000000; /* White background */
+    color: #faf9f9; /* Text color */
 }
 
-.profile-container h2 {
-    margin-bottom: 20px;
-}
-
-.profile-option {
-    position: relative;
-    display: flow;
+.profile-header {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    background-color: #000000; /* Blue background for header */
+    color: #fff;
 }
 
-.profile-button {
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    width: 170px;
-    height: 50px;
-    font-size: 16px;
+.menu-icon {
+    font-size: 24px;
     cursor: pointer;
+}
+
+.profile-content {
+    margin-top: 20px;
+}
+
+.profile-button-one {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 15px 20px;
+    width: 200px;
+    background-color: #720d30; /* Blue background for buttons */
+    color: white; /* White text */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.profile-button-two {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 15px 20px;
+    width: 200px;
+    background-color: #e8c530; /* Blue background for buttons */
+    color: white; /* White text */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.profile-button-three {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 15px 20px;
+    width: 200px;
+    background-color: #37a6e7; /* Blue background for buttons */
+    color: white; /* White text */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.profile-button-four {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto;
+    padding: 15px 20px;
+    width: 200px;
+    background-color: #499b66; /* Blue background for buttons */
+    color: white; /* White text */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .info-icon {
-    width: 16px; /* Adjust size */
-    height: 16px; /* Adjust size */
-    position: relative;
-    top: -8px;  /* Adjust position to be slightly above */
-    right: -8px; /* Adjust position to be to the right */
-    cursor: pointer;
-}
-
-
-.menu-icon {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
 }
