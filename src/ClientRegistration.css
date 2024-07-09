@@ -1,95 +1,132 @@
-/* src/ClientRegistration.css */
-.registration-container {
-    text-align: center;
-    background-color: white;
-    padding: 20px;
-    position: relative;
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #010202; /* Black background */
+    color: #faf9f9; /* Text color */
+    font-family: Arial, sans-serif;
 }
 
-.registration-title {
+.registration-form-page {
+    max-width: 400px;
+    margin: auto;
+    padding: 1rem;
+    text-align: left;
+    padding: 20px;
+    background-color: #000000; /* Black background */
+    color: #faf9f9; /* Text color */
+}
+
+.registration-form-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #010202; /* Black background for header */
+    color: #fff;
     margin-bottom: 20px;
 }
 
 .menu-icon {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    font-size: 24px;
     cursor: pointer;
 }
 
-.registration-form {
+.registration-form-content {
+    width: 100%;
+    max-width: 400px;
+    background-color: #010202; /* Black background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form-content h1 {
+    text-align: center;
+    color: #e91e63; /* Pink color for the title */
+    margin-bottom: 20px;
+}
+
+.registration-form-content form {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .form-group {
     margin-bottom: 15px;
-    width: 100%;
-    max-width: 400px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-size: 14px;
+    color: #faf9f9;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 8px;
+.form-group input, .form-group select {
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white; /* White background for inputs */
+    color: black; /* Black text for inputs */
 }
 
 .gender-options {
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 5px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between radio buttons */
+    color: white; /* White text for gender options */
 }
 
-.submit-button {
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
+.gender-options input {
+    margin: 0 5px;
 }
 
-.submit-button:hover {
-    background-color: darkblue;
-}
-
-.home-button {
-
-    background-color: blue;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-
-}
-.home-button:hover{
-    background-color: darkblue;
-}
-.form-row{
-    position: relative;
-    display: flow ;
-
-}
 .error {
     color: red;
-    font-size: 12px;
+    font-size: 0.8rem;
     margin-top: 5px;
-    display: block;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #51d5f3; /* Blue background for the button */
+    color: white; /* White text for the button */
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #464d53;
+}
+
+.home-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #51d5f3;
+}
+
+@media (max-width: 600px) {
+    .registration-form-page {
+        padding: 10px;
+    }
+
+    .form-group input, .form-group select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .menu-icon, .home-icon {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
 }
