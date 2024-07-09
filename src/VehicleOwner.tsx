@@ -33,8 +33,9 @@ function VehicleRegistrationForm() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
     // Add your submission logic here
+    console.log('Form submitted:', formData);
+    
   };
 
   const validate = () => {
