@@ -42,8 +42,8 @@ const MainForm: React.FC = () => {
             </div>
 
             <div className="button-container">
-              <button type="submit">Save</button>
-              <button type="button" className="apply-button">Apply</button>
+              <button type="button">Save</button>
+              <button type="submit" className="apply-button">Apply</button>
             </div>
           </form>
         </div>

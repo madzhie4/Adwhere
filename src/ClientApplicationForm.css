@@ -159,7 +159,7 @@ body {
       display: none;
       flex-direction: column;
       position: absolute;
-      top: 60px; /* Adjust based on header height */
+      top: 60px;
       left: 0;
       right: 0;
       background-color: #ffffff; /* Background color for mobile menu */
@@ -183,7 +183,7 @@ body {
     }
   
     .dropdown {
-      display: none; /* Hide dropdown in mobile view */
+      display: block; /* Hide dropdown in mobile view */
     }
   }
 
@@ -274,7 +274,7 @@ body {
   .menu-toggle .hamburger {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #000;
     margin: 4px 0;
     transition: 0.4s;
   }
@@ -439,9 +439,9 @@ body {
     .nav-links {
       display: none;
       flex-direction: column;
-      width: 100%;
       text-align: center;
-      background-color: #000;
+      background-color: #fff;
+
     }
   
     .nav-links.open {
@@ -455,5 +455,5 @@ body {
     .navbar {
       justify-content: space-between;
     }
-  }
+}
   
