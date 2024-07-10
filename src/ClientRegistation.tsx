@@ -1,13 +1,12 @@
-// src/ClientRegistration.tsx
-import React, { useState, ChangeEvent, FormEvent } from 'react';
 import './ClientRegistration.css';
-import menuIcon from './icons/menu.png';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
+import {FaBars, FaChevronDown, FaHome} from 'react-icons/fa';
 
 interface FormData {
     businessName: string;
-    representativeName: string;
+    clientName: string;
+    clientSurname: string;
     phone: string;
-    representativeSurname: string;
     gender: string;
     city: string;
     zip: string;
@@ -15,12 +14,12 @@ interface FormData {
     address: string;
 }
 
-const ClientRegistration: React.FC = () => {
+const RegistrationForm: React.FC = () => {
     const [formData, setFormData] = useState<FormData>({
         businessName: '',
-        representativeName: '',
+        clientName: '',
+        clientSurname: '',
         phone: '',
-        representativeSurname: '',
         gender: '',
         city: '',
         zip: '',
@@ -30,32 +29,25 @@ const ClientRegistration: React.FC = () => {
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value,
         });
-        setErrors({
-            ...errors,
-            [name]: '',
-        });
     };
 
     const validate = () => {
         const newErrors: { [key: string]: string } = {};
-
         if (!formData.businessName) newErrors.businessName = 'Business name is required';
-        if (!formData.representativeName) newErrors.representativeName = 'Representative name is required';
+        if (!formData.clientName) newErrors.clientName = 'Client name is required';
+        if (!formData.clientSurname) newErrors.clientSurname = 'Client surname is required';
         if (!formData.phone) newErrors.phone = 'Phone number is required';
-        if (!/^\d+$/.test(formData.phone)) newErrors.phone = 'Phone number must be numeric';
-        if (!formData.representativeSurname) newErrors.representativeSurname = 'Representative surname is required';
         if (!formData.gender) newErrors.gender = 'Gender is required';
         if (!formData.city) newErrors.city = 'City is required';
         if (!formData.zip) newErrors.zip = 'ZIP code is required';
         if (!formData.province) newErrors.province = 'Province is required';
         if (!formData.address) newErrors.address = 'Address is required';
-
         return newErrors;
     };
 
@@ -71,36 +63,44 @@ const ClientRegistration: React.FC = () => {
     };
 
     return (
-        <div className="registration-container">
-            <img src={menuIcon} alt="menu" className="menu-icon" />
-            <h2 className="registration-title">Client Registration Form</h2>
-            <form className="registration-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="businessName">Business, Organization, Artist, Channel etc. name</label>
-                    <input
-                        type="text"
-                        id="businessName"
-                        name="businessName"
-                        placeholder="e.g. Burger King, WHO, Lil Wayne, Hot Ink"
-                        value={formData.businessName}
-                        onChange={handleChange}
-                        required
-                    />
-                    {errors.businessName && <span className="error">{errors.businessName}</span>}
+        <div className="registration-form-page">
+            <header className="registration-form-header">
+                <FaBars className="menu-icon" />
+                <h1>Client</h1>
+            </header>
+            <div className="registration-form-content">
+                <div className="title-container">
+                    <h2>Application form</h2>
+                    <button className="dropdown-button">
+                        Applications <FaChevronDown/>
+                    </button>
                 </div>
-                <div className="form-row">
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="representativeName">Client representative name</label>
+                        <label htmlFor="businessName">Business, Organization, Artist, Channel, etc. name</label>
                         <input
                             type="text"
-                            id="representativeName"
-                            name="representativeName"
-                            placeholder="e.g. Name"
-                            value={formData.representativeName}
+                            id="businessName"
+                            name="businessName"
+                            placeholder="e.g. Burger King, WHO, Lil young, Hot link"
+                            value={formData.businessName}
                             onChange={handleChange}
                             required
                         />
-                        {errors.representativeName && <span className="error">{errors.representativeName}</span>}
+                        {errors.businessName && <div className="error">{errors.businessName}</div>}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="clientName">Client representative name</label>
+                        <input
+                            type="text"
+                            id="clientName"
+                            name="clientName"
+                            placeholder="e.g. Name"
+                            value={formData.clientName}
+                            onChange={handleChange}
+                            required
+                        />
+                        {errors.clientName && <div className="error">{errors.clientName}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone">Phone</label>
@@ -113,43 +113,58 @@ const ClientRegistration: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.phone && <span className="error">{errors.phone}</span>}
+                        {errors.phone && <div className="error">{errors.phone}</div>}
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="representativeSurname">Client representative surname</label>
-                    <input
-                        type="text"
-                        id="representativeSurname"
-                        name="representativeSurname"
-                        placeholder="e.g. Surname"
-                        value={formData.representativeSurname}
-                        onChange={handleChange}
-                        required
-                    />
-                    {errors.representativeSurname && <span className="error">{errors.representativeSurname}</span>}
-                </div>
-                <div className="form-row">
+                    <div className="form-group">
+                        <label htmlFor="clientSurname">Client representative surname</label>
+                        <input
+                            type="text"
+                            id="clientSurname"
+                            name="clientSurname"
+                            placeholder="e.g. Surname"
+                            value={formData.clientSurname}
+                            onChange={handleChange}
+                            required
+                        />
+                        {errors.clientSurname && <div className="error">{errors.clientSurname}</div>}
+                    </div>
                     <div className="form-group">
                         <label>Gender</label>
                         <div className="gender-options">
-                            <label>
-                                <input type="radio" name="gender" value="M" onChange={handleChange} /> M
-                            </label>
-                            <label>
-                                <input type="radio" name="gender" value="F" onChange={handleChange} /> F
-                            </label>
-                            <label>
-                                <input type="radio" name="gender" value="O" onChange={handleChange} /> O
-                            </label>
+                            <label htmlFor="male">M</label>
+                            <input
+                                type="radio"
+                                id="male"
+                                name="gender"
+                                value="M"
+                                checked={formData.gender === 'M'}
+                                onChange={handleChange}
+                                required
+                            />
+                            <label htmlFor="female">F</label>
+                            <input
+                                type="radio"
+                                id="female"
+                                name="gender"
+                                value="F"
+                                checked={formData.gender === 'F'}
+                                onChange={handleChange}
+                                required
+                            />
+                            <label htmlFor="other">O</label>
+                            <input
+                                type="radio"
+                                id="other"
+                                name="gender"
+                                value="O"
+                                checked={formData.gender === 'O'}
+                                onChange={handleChange}
+                                required
+                            />
+
                         </div>
-                        {errors.gender && <span className="error">{errors.gender}</span>}
+                        {errors.gender && <div className="error">{errors.gender}</div>}
                     </div>
-                </div>
-                <div className="form-group">
-                    <h3>Location</h3>
-                </div>
-                <div className="form-row">
                     <div className="form-group">
                         <label htmlFor="city">City</label>
                         <input
@@ -161,7 +176,7 @@ const ClientRegistration: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.city && <span className="error">{errors.city}</span>}
+                        {errors.city && <div className="error">{errors.city}</div>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="zip">ZIP</label>
@@ -174,51 +189,50 @@ const ClientRegistration: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.zip && <span className="error">{errors.zip}</span>}
+                        {errors.zip && <div className="error">{errors.zip}</div>}
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="province">Province</label>
-                    <select
-                        id="province"
-                        name="province"
-                        value={formData.province}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="">Select Province</option>
-                        <option value="eastern-cape">Eastern Cape</option>
-                        <option value="free-state">Free State</option>
-                        <option value="gauteng">Gauteng</option>
-                        <option value="kwazulu-natal">KwaZulu-Natal</option>
-                        <option value="limpopo">Limpopo</option>
-                        <option value="mpumalanga">Mpumalanga</option>
-                        <option value="northern-cape">Northern Cape</option>
-                        <option value="north-west">North West</option>
-                        <option value="western-cape">Western Cape</option>
-                    </select>
-                    {errors.province && <span className="error">{errors.province}</span>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="address">Address</label>
-                    <textarea
-                        id="address"
-                        name="address"
-                        placeholder="e.g. 57B Bafano, Cf Mandalay"
-                        value={formData.address}
-                        onChange={handleChange}
-                        required
-                    ></textarea>
-                    {errors.address && <span className="error">{errors.address}</span>}
-                </div>
-                <div className="form-row">
-                    <button type="button" className="home-button">Home</button>
-                    <button type="submit" className="submit-button">Register</button>
+                    <div className="form-group">
+                        <label htmlFor="province">Province</label>
+                        <select
+                            id="province"
+                            name="province"
+                            value={formData.province}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">Select Province</option>
+                            <option value="Eastern Cape">Eastern Cape</option>
+                            <option value="Free State">Free State</option>
+                            <option value="Gauteng">Gauteng</option>
+                            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                            <option value="Limpopo">Limpopo</option>
+                            <option value="Mpumalanga">Mpumalanga</option>
+                            <option value="Northern Cape">Northern Cape</option>
+                            <option value="North West">North West</option>
+                            <option value="Western Cape">Western Cape</option>
+                        </select>
+                        {errors.province && <div className="error">{errors.province}</div>}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="address">Address</label>
+                        <input
+                            type="text"
+                            id="address"
+                            name="address"
+                            placeholder="e.g. 57 Buitengracht Street"
+                            value={formData.address}
+                            onChange={handleChange}
+                            required
+                        />
+                        {errors.address && <div className="error">{errors.address}</div>}
+                    </div>
 
-                </div>
-            </form>
+                    <button type="submit">Register</button>
+
+                </form>
+            </div>
         </div>
     );
 };
 
-export default ClientRegistration;
+export default RegistrationForm;
