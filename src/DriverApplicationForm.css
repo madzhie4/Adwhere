@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #8f1d1d;
   }
+  
   .driver-application-container {
     max-height: 97vh; /* Adjust the height as needed */
     overflow-y: auto;

@@ -191,7 +191,7 @@ const DriverApplicationForm = () => {
         <div className="form-group">
           <label htmlFor="drivingLicense">
             Driving license with PrDP front and back
-            <span className="info-icon">i</span>
+            <span className="info-icon">ⓘ</span>
           </label>
           <div className="file-input">
             <button type="button" onClick={() => triggerFileInput('drivingLicense')}>Choose File</button>
@@ -209,7 +209,7 @@ const DriverApplicationForm = () => {
         <div className="form-group">
           <label htmlFor="certifiedId">
             Certified ID
-            <span className="info-icon">i</span>
+            <span className="info-icon">ⓘ</span>
           </label>
           <div className="file-input">
             <button type="button" onClick={() => triggerFileInput('certifiedId')}>Choose File</button>
@@ -227,7 +227,7 @@ const DriverApplicationForm = () => {
         <div className="form-group">
           <label htmlFor="proofOfAddress">
             Proof of address
-            <span className="info-icon">i</span>
+            <span className="info-icon">ⓘ</span>
           </label>
           <div className="file-input">
             <button type="button" onClick={() => triggerFileInput('proofOfAddress')}>Choose File</button>
