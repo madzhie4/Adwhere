@@ -1,0 +1,20 @@
+.add-icon {
+    margin-left: auto; /* Push the cart icon to the right */
+    cursor: pointer;
+}
+
+input[type="number"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 100px;
+}
+
+.title-vehicle{
+    color: yellow;
+}
+
+.button-container .next-button{
+    margin-left: auto;
+    max-width: 100px;
+}
