@@ -14,7 +14,7 @@ import Furbisher from './Furbisher';
 import VehicleOwnerApplication from './VehicleOwnerApplication';
 import VehicleOwnerApplication2 from './VehicleOwnerApplication2';
 import DriverApplicationForm from './DriverApplication';
-
+import AcceptedVehicleOwner from './AcceptedVehicleOwner';
 
 function MainApp() {
   return (
@@ -33,7 +33,7 @@ function MainApp() {
         <Route path="/VehicleOwnerApplication" element={<VehicleOwnerApplication />} />
         <Route path="/VehicleOwnerApplication2" element={<VehicleOwnerApplication2 />} />
         <Route path="/DriverApplicationForm" element={<DriverApplicationForm />} />
-        <Route path="/DriverApplicationForm" element={<DriverApplicationForm />} />
+        <Route path="/AcceptedVehicleOwner" element={<AcceptedVehicleOwner />} />
 
       </Routes>
     </Router>
