@@ -1,48 +1,100 @@
 import React, { ChangeEvent, useState } from 'react';
-import './VehicleOwnerForm.css';
+import './AcceptedVehicleOwner.css';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
+type FormData = {
+  isHomeAddress: string;
+  vehicleLocation: string;
+  restrictedAreaMethod: string;
+  listAreas: string[];
+  serviceTimeFrom: string;
+  serviceTimeTill: string;
+  leaseStartDate: Date;
+  leaseDuration: number;
+  mapCenter: {
+    lat: number;
+    lng: number;
+  };
+  markerPosition: { lat: number; lng: number } | null;
+};
 
 const VehicleOwnerForm = () => {
-  const [formData, setFormData] = useState({
-    homeAddress: false,
-    vehicleLocation: '',
-    restrictedCarArea: '',
+  const [formData, setFormData] = useState<FormData>({
+    isHomeAddress: 'no',
+    vehicleLocation: '32 Avenue\nSea Point\nCape Town',
+    restrictedAreaMethod: 'pickOnMap',
+    listAreas: ['E.g. All of Khayelitsha'],
     serviceTimeFrom: '00:00',
     serviceTimeTill: '23:59',
-    leaseStartDate: new Date(),
+    leaseStartDate: new Date('2024-01-01'),
     leaseDuration: 32,
+    mapCenter: { lat: -33.9249, lng: 18.4241 }, // Cape Town coordinates
+    markerPosition: null,
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
-    
-    if (type === 'checkbox') {
-      const { checked } = e.target as HTMLInputElement;
+
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: type === 'radio' ? (e.target as HTMLInputElement).value : value
+    }));
+  };
+
+  const handleMapClick = (event: google.maps.MapMouseEvent) => {
+    if (event.latLng) {
       setFormData(prevState => ({
         ...prevState,
-        [name]: checked
-      }));
-    } else {
-      setFormData(prevState => ({
-        ...prevState,
-        [name]: value
+        markerPosition: {
+          lat: event.latLng?.lat() || 0,
+          lng: event.latLng?.lng() || 0,
+        }
       }));
     }
   };
 
+  const handleAddArea = () => {
+    setFormData(prevState => ({
+      ...prevState,
+      listAreas: [...prevState.listAreas, '']
+    }));
+  };
+
+  const handleAreaChange = (index: number, value: string) => {
+    const newAreas = [...formData.listAreas];
+    newAreas[index] = value;
+    setFormData(prevState => ({
+      ...prevState,
+      listAreas: newAreas
+    }));
+  };
+
   return (
     <div className="vehicle-owner-form">
-      <h2>Vehicle owner <span className="checkmark">✓</span></h2>
+      <h2>Vehicle owner <span className="checkmark">✓</span> <span className="id">03VOAci402</span></h2>
 
       <div className="form-group">
-        <label>
-          <input
-            type="checkbox"
-            name="homeAddress"
-            checked={formData.homeAddress}
-            onChange={handleInputChange}
-          />
-          Is vehicle location same as home address
-        </label>
+        <label>Is vehicle location same as home address</label>
+        <div className="radio-group">
+          <label>
+            <input
+              type="radio"
+              name="isHomeAddress"
+              value="no"
+              checked={formData.isHomeAddress === 'no'}
+              onChange={handleInputChange}
+            /> No
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="isHomeAddress"
+              value="yes"
+              checked={formData.isHomeAddress === 'yes'}
+              onChange={handleInputChange}
+            /> Yes
+          </label>
+        </div>
       </div>
 
       <div className="form-group">
@@ -51,50 +103,92 @@ const VehicleOwnerForm = () => {
           name="vehicleLocation"
           value={formData.vehicleLocation}
           onChange={handleInputChange}
-          placeholder="e.g. 123 Main Street, Sea Point, Cape Town"
+          rows={3}
         />
       </div>
 
       <div className="form-group">
         <label>Restricted car area</label>
-        <input
-          type="text"
-          name="restrictedCarArea"
-          value={formData.restrictedCarArea}
-          onChange={handleInputChange}
-        />
-        <div className="map-placeholder"></div>
+        <div className="radio-group">
+          <label>
+            <input
+              type="radio"
+              name="restrictedAreaMethod"
+              value="pickOnMap"
+              checked={formData.restrictedAreaMethod === 'pickOnMap'}
+              onChange={handleInputChange}
+            /> Pick on map
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="restrictedAreaMethod"
+              value="listAreas"
+              checked={formData.restrictedAreaMethod === 'listAreas'}
+              onChange={handleInputChange}
+            /> List areas
+          </label>
+        </div>
+        {formData.restrictedAreaMethod === 'pickOnMap' && (
+          <div className="map-container">
+            <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+              <GoogleMap
+                mapContainerStyle={{ width: '100%', height: '400px' }}
+                center={formData.mapCenter}
+                zoom={10}
+                onClick={handleMapClick}
+              >
+                {formData.markerPosition && <Marker position={formData.markerPosition} />}
+              </GoogleMap>
+            </LoadScript>
+          </div>
+        )}
+        {formData.restrictedAreaMethod === 'listAreas' && (
+          <div>
+            {formData.listAreas.map((area, index) => (
+              <input
+                key={index}
+                type="text"
+                value={area}
+                onChange={(e) => handleAreaChange(index, e.target.value)}
+                placeholder="Enter area"
+              />
+            ))}
+            <button onClick={handleAddArea} className="add-button">+</button>
+          </div>
+        )}
       </div>
 
       <div className="form-group">
         <label>Vehicle daily service times</label>
         <div className="time-inputs">
-          <label>
-            From:
-            <input
-              type="time"
-              name="serviceTimeFrom"
-              value={formData.serviceTimeFrom}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Till:
-            <input
-              type="time"
-              name="serviceTimeTill"
-              value={formData.serviceTimeTill}
-              onChange={handleInputChange}
-            />
-          </label>
+          <input
+            type="time"
+            name="serviceTimeFrom"
+            value={formData.serviceTimeFrom}
+            onChange={handleInputChange}
+          />
+          <span>—</span>
+          <input
+            type="time"
+            name="serviceTimeTill"
+            value={formData.serviceTimeTill}
+            onChange={handleInputChange}
+          />
         </div>
       </div>
 
       <div className="form-group">
         <label>Car lease duration</label>
         <div className="calendar-container">
-          {/* Placeholder for calendar component */}
-          <div className="calendar-placeholder"></div>
+          <input
+            type="date"
+            name="leaseStartDate"
+            value={formData.leaseStartDate.toISOString().split('T')[0]}
+            onChange={(e) => setFormData(prev => ({ ...prev, leaseStartDate: new Date(e.target.value) }))}
+          />
+          {/* Calendar component would go here */}
+          <div className="calendar-placeholder">Calendar Placeholder</div>
           <span>{formData.leaseDuration} Days</span>
         </div>
       </div>
