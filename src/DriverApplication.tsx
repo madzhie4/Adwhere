@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import axios from 'axios'; // Ensure axios is imported
-import './DriverApplicationForm.css'; // Update to include the correct path for your CSS file
+import axios from 'axios';
+import './DriverApplicationForm.css';
 
 const DriverApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +16,8 @@ const DriverApplicationForm = () => {
     experience: '',
   });
 
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -30,57 +32,47 @@ const DriverApplicationForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const data = new FormData();
-    for (const key in formData) {
-      const value = formData[key as keyof typeof formData];
-      if (value) {
-        data.append(key, value);
-      }
-    }
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!formData.nextOfKinName) newErrors.nextOfKinName = 'Next of kin name is required';
+    if (!formData.nextOfKinSurname) newErrors.nextOfKinSurname = 'Next of kin surname is required';
+    if (!formData.nextOfKinIdNumber) newErrors.nextOfKinIdNumber = 'Next of kin ID number is required';
+    if (!formData.selfie) newErrors.selfie = 'Selfie is required';
+    if (!formData.criminalRecordCheck) newErrors.criminalRecordCheck = 'Criminal record check certificate is required';
+    if (!formData.drivingEvaluationCertificate) newErrors.drivingEvaluationCertificate = 'Driving evaluation certificate is required';
+    if (!formData.drivingLicense) newErrors.drivingLicense = 'Driving license with PrDP front and back is required';
+    if (!formData.certifiedId) newErrors.certifiedId = 'Certified ID is required';
+    if (!formData.proofOfAddress) newErrors.proofOfAddress = 'Proof of address is required';
+    if (!formData.experience) newErrors.experience = 'Experience is required';
 
-    try {
-      const response = await axios.post('/api/driver-application', data, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
-      console.log('Application submitted:', response.data);
-      // Handle success (e.g., show a success message, redirect)
-    } catch (error) {
-      console.error('Error submitting application:', error);
-      // Handle error (e.g., show error message)
-    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const openCamera = async () => {
-    const video = document.createElement('video');
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-
-    if (!context) {
-      console.error('Failed to get canvas context');
-      return;
-    }
-
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    video.srcObject = stream;
-    video.play();
-
-    document.body.appendChild(video);
-
-    video.addEventListener('click', () => {
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      canvas.toBlob((blob) => {
-        if (blob) {
-          const file = new File([blob], 'selfie.jpg', { type: 'image/jpeg' });
-          setFormData({ ...formData, selfie: file });
-          video.remove();
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      const data = new FormData();
+      for (const key in formData) {
+        const value = formData[key as keyof typeof formData];
+        if (value) {
+          data.append(key, value);
         }
-      }, 'image/jpeg');
-    });
+      }
+
+      try {
+        const response = await axios.post('/api/driver-application', data, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        });
+        console.log('Application submitted:', response.data);
+        // Handle success (e.g., show a success message, redirect)
+      } catch (error) {
+        console.error('Error submitting application:', error);
+        // Handle error (e.g., show error message)
+      }
+    } else {
+      console.log('Validation failed');
+    }
   };
 
   const triggerFileInput = (inputId: string) => {
@@ -95,7 +87,7 @@ const DriverApplicationForm = () => {
           <h2>Application form</h2>
           <div className="applications-button">Applications ▼</div>
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="nextOfKinName">Next of kin name</label>
           <input
@@ -105,7 +97,9 @@ const DriverApplicationForm = () => {
             value={formData.nextOfKinName}
             onChange={handleInputChange}
             placeholder="e.g. Susan"
+            required
           />
+          {errors.nextOfKinName && <span className="error">{errors.nextOfKinName}</span>}
         </div>
 
         <div className="form-group">
@@ -117,7 +111,9 @@ const DriverApplicationForm = () => {
             value={formData.nextOfKinSurname}
             onChange={handleInputChange}
             placeholder="e.g. Williams"
+            required
           />
+          {errors.nextOfKinSurname && <span className="error">{errors.nextOfKinSurname}</span>}
         </div>
 
         <div className="form-group">
@@ -129,7 +125,9 @@ const DriverApplicationForm = () => {
             value={formData.nextOfKinIdNumber}
             onChange={handleInputChange}
             placeholder="e.g. 1234567891234"
+            required
           />
+          {errors.nextOfKinIdNumber && <span className="error">{errors.nextOfKinIdNumber}</span>}
         </div>
 
         <div className="form-group">
@@ -138,7 +136,6 @@ const DriverApplicationForm = () => {
             <span className="info-icon">ⓘ</span>
           </label>
           <div className="file-input">
-            {/* <button type="button" onClick={openCamera}>Upload</button> */}
             <button type="button" onClick={() => triggerFileInput('selfie')}>Choose File</button>
             <input
               type="file"
@@ -147,9 +144,11 @@ const DriverApplicationForm = () => {
               onChange={handleFileChange}
               accept="image/*"
               style={{ display: 'none' }}
+              required
             />
             <span className="file-status">{formData.selfie ? formData.selfie.name : 'No file chosen'}</span>
           </div>
+          {errors.selfie && <span className="error">{errors.selfie}</span>}
         </div>
 
         <div className="form-group">
@@ -165,9 +164,11 @@ const DriverApplicationForm = () => {
               name="criminalRecordCheck"
               onChange={handleFileChange}
               style={{ display: 'none' }}
+              required
             />
             <span className="file-status">{formData.criminalRecordCheck ? formData.criminalRecordCheck.name : 'No file chosen'}</span>
           </div>
+          {errors.criminalRecordCheck && <span className="error">{errors.criminalRecordCheck}</span>}
         </div>
 
         <div className="form-group">
@@ -183,9 +184,11 @@ const DriverApplicationForm = () => {
               name="drivingEvaluationCertificate"
               onChange={handleFileChange}
               style={{ display: 'none' }}
+              required
             />
             <span className="file-status">{formData.drivingEvaluationCertificate ? formData.drivingEvaluationCertificate.name : 'No file chosen'}</span>
           </div>
+          {errors.drivingEvaluationCertificate && <span className="error">{errors.drivingEvaluationCertificate}</span>}
         </div>
 
         <div className="form-group">
@@ -201,9 +204,11 @@ const DriverApplicationForm = () => {
               name="drivingLicense"
               onChange={handleFileChange}
               style={{ display: 'none' }}
+              required
             />
             <span className="file-status">{formData.drivingLicense ? formData.drivingLicense.name : 'No file chosen'}</span>
           </div>
+          {errors.drivingLicense && <span className="error">{errors.drivingLicense}</span>}
         </div>
 
         <div className="form-group">
@@ -219,9 +224,11 @@ const DriverApplicationForm = () => {
               name="certifiedId"
               onChange={handleFileChange}
               style={{ display: 'none' }}
+              required
             />
             <span className="file-status">{formData.certifiedId ? formData.certifiedId.name : 'No file chosen'}</span>
           </div>
+          {errors.certifiedId && <span className="error">{errors.certifiedId}</span>}
         </div>
 
         <div className="form-group">
@@ -237,9 +244,11 @@ const DriverApplicationForm = () => {
               name="proofOfAddress"
               onChange={handleFileChange}
               style={{ display: 'none' }}
+              required
             />
             <span className="file-status">{formData.proofOfAddress ? formData.proofOfAddress.name : 'No file chosen'}</span>
           </div>
+          {errors.proofOfAddress && <span className="error">{errors.proofOfAddress}</span>}
         </div>
 
         <div className="form-group">
@@ -250,13 +259,15 @@ const DriverApplicationForm = () => {
             value={formData.experience}
             onChange={handleTextChange}
             placeholder="Describe your driving experience"
+            required
           />
+          {errors.experience && <span className="error">{errors.experience}</span>}
         </div>
 
         <div className="form-actions">
-        <button type="button" className="save-button">Save</button>
-        <button type="button" className="apply-button">Apply</button>
-      </div>
+          <button type="submit" className="save-button">Save</button>
+          <button type="submit" className="apply-button">Apply</button>
+        </div>
       </form>
     </div>
   );
