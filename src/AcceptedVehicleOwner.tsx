@@ -18,6 +18,17 @@ type FormData = {
   markerPosition: { lat: number; lng: number } | null;
 };
 
+type FormErrors = {
+  isHomeAddress?: string;
+  vehicleLocation?: string;
+  restrictedAreaMethod?: string;
+  listAreas?: string;
+  serviceTimeFrom?: string;
+  serviceTimeTill?: string;
+  leaseStartDate?: string;
+  leaseDuration?: string;
+};
+
 const VehicleOwnerForm = () => {
   const [formData, setFormData] = useState<FormData>({
     isHomeAddress: 'no',
@@ -31,6 +42,8 @@ const VehicleOwnerForm = () => {
     mapCenter: { lat: -33.9249, lng: 18.4241 }, // Cape Town coordinates
     markerPosition: null,
   });
+
+  const [errors, setErrors] = useState<FormErrors>({});
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
@@ -69,8 +82,50 @@ const VehicleOwnerForm = () => {
     }));
   };
 
+  const validate = () => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.vehicleLocation.trim()) {
+      newErrors.vehicleLocation = 'Vehicle location is required';
+    }
+
+    if (!formData.serviceTimeFrom) {
+      newErrors.serviceTimeFrom = 'Service time from is required';
+    }
+
+    if (!formData.serviceTimeTill) {
+      newErrors.serviceTimeTill = 'Service time till is required';
+    }
+
+    if (!formData.leaseStartDate) {
+      newErrors.leaseStartDate = 'Lease start date is required';
+    }
+
+    if (!formData.leaseDuration) {
+      newErrors.leaseDuration = 'Lease duration is required';
+    }
+
+    if (formData.restrictedAreaMethod === 'listAreas' && formData.listAreas.some(area => !area.trim())) {
+      newErrors.listAreas = 'All listed areas must be filled out';
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      // Handle form submission
+      console.log('Form submitted', formData);
+    } else {
+      console.log('Validation failed');
+    }
+  };
+
   return (
-    <div className="vehicle-owner-form">
+    <form className="vehicle-owner-form" onSubmit={handleSubmit}>
       <h2>Vehicle owner <span className="checkmark">✓</span> <span className="id">03VOAci402</span></h2>
 
       <div className="form-group">
@@ -104,7 +159,9 @@ const VehicleOwnerForm = () => {
           value={formData.vehicleLocation}
           onChange={handleInputChange}
           rows={3}
+          required
         />
+        {errors.vehicleLocation && <span className="error">{errors.vehicleLocation}</span>}
       </div>
 
       <div className="form-group">
@@ -152,9 +209,11 @@ const VehicleOwnerForm = () => {
                 value={area}
                 onChange={(e) => handleAreaChange(index, e.target.value)}
                 placeholder="Enter area"
+                required
               />
             ))}
-            <button onClick={handleAddArea} className="add-button">+</button>
+            {errors.listAreas && <span className="error">{errors.listAreas}</span>}
+            <button type="button" onClick={handleAddArea} className="add-button">+</button>
           </div>
         )}
       </div>
@@ -167,6 +226,7 @@ const VehicleOwnerForm = () => {
             name="serviceTimeFrom"
             value={formData.serviceTimeFrom}
             onChange={handleInputChange}
+            required
           />
           <span>—</span>
           <input
@@ -174,8 +234,11 @@ const VehicleOwnerForm = () => {
             name="serviceTimeTill"
             value={formData.serviceTimeTill}
             onChange={handleInputChange}
+            required
           />
         </div>
+        {errors.serviceTimeFrom && <span className="error">{errors.serviceTimeFrom}</span>}
+        {errors.serviceTimeTill && <span className="error">{errors.serviceTimeTill}</span>}
       </div>
 
       <div className="form-group">
@@ -186,20 +249,23 @@ const VehicleOwnerForm = () => {
             name="leaseStartDate"
             value={formData.leaseStartDate.toISOString().split('T')[0]}
             onChange={(e) => setFormData(prev => ({ ...prev, leaseStartDate: new Date(e.target.value) }))}
+            required
           />
           {/* Calendar component would go here */}
           <div className="calendar-placeholder">Calendar Placeholder</div>
           <span>{formData.leaseDuration} Days</span>
         </div>
+        {errors.leaseStartDate && <span className="error">{errors.leaseStartDate}</span>}
+        {errors.leaseDuration && <span className="error">{errors.leaseDuration}</span>}
       </div>
 
       <div className="form-actions">
-        <button className="submit-button">Submit</button>
-        <button className="submit-journey-button">Submit & Go to journey</button>
-        <button className="save-button">Save</button>
-        <button className="edit-button">Edit</button>
+        <button type="submit" className="submit-button">Submit</button>
+        <button type="button" className="submit-journey-button">Submit & Go to journey</button>
+        <button type="button" className="save-button">Save</button>
+        <button type="button" className="edit-button">Edit</button>
       </div>
-    </div>
+    </form>
   );
 };
 
