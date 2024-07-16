@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <img src="path-to-your-logo.png" alt="Logo" className="logo" />
+                <img src="src/icons/icononly.png" alt="Logo" className="logo" />
                 <nav>
                     <a href="#home">Home</a>
                     <a href="#about">About us</a>

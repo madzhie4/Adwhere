@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     return (
         <header className="header">
             <div className="header-left">
-                <img src="path-to-your-logo.png" alt="Logo" className="logo" />
+                <img src="src/icons/icononly.png" alt="Logo" className="logo" />
                 <nav>
                     <a href="#about">About us</a>
                     <a href="#services">Services</a>
