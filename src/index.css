@@ -1,61 +1,115 @@
-body {
+/* Global Styles */
+html, body, #root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+body {
+  background-color: black;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.registration-container {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #1e90ff;
+/* Common Container Styles */
+.Welcome-container,
+.registration-container,
+.login-container,
+.signup-form {
+  flex: 1;
+  width: 100%;
+  background-color: black;
   color: white;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+.adwhere{
+  color: #007bff;
+}
+.adwhere .highlight{
+  color:white;
 }
 
+.content-wrapper {
+  width: 100%;
+  max-width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px; /* Ensure padding on the sides to prevent horizontal scroll */
+  box-sizing: border-box; /* Include padding in the element's width */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+}
+
+/* Header Styles */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #0066cc;
+  padding: 10px 0;
+  width: 100%;
+  background-color: black;
 }
 
-.menu-icon, .search-icon {
+.heading h1{
+  color: #ffeb3b;
+  font-size: 40px; 
+}
+
+.menu-icon {
+  position: absolute;
+  left: 10px;
   font-size: 24px;
 }
 
+/* Typography */
 h1 {
-  font-size: 20px;
+  font-size: 48px;
+  text-align: center;
   margin: 0;
 }
 
 h2 {
   font-size: 18px;
-  margin: 20px 0 10px 20px;
+  margin: 0;
 }
 
+/* Form Styles */
 form {
-  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.form-group,
+.input-container {
+  width: 100%;
+  padding: 0 20px; /* Add padding to ensure consistent spacing */
+  box-sizing: border-box; /* Include padding in the element's width */
+  /* display: flex; */
+  justify-content: flex-start; 
 }
 
 label {
@@ -66,14 +120,18 @@ label {
 
 input[type="text"],
 input[type="date"],
+input[type="email"],
+input[type="password"],
 select,
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
   background-color: white;
-  color: #333;
+  color: #616161;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .radio-group {
@@ -90,154 +148,141 @@ input[type="radio"] {
   margin-right: 5px;
 }
 
-/* Location specific styles */
-.location-section {
-  background-color: #4da6ff;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.location-section .form-group {
-  margin-bottom: 10px;
-}
-
-.location-section input,
-.location-section select {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.location-section input::placeholder,
-.location-section select::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.location-section label {
-  font-weight: bold;
-}
-
-.register-button {
+/* Button Styles */
+.register-button,
+.sign-in-button,
+.Welcome-container button,
+.verify-otp-button button,
+.signup-form button[type="submit"] {
   width: 100%;
   padding: 15px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #007bff;
+  color: #f4f4f7;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+}
+
+.Welcome-container button:hover,
+.signup-form button[type="submit"]:hover {
+  background-color: #444444;
+}
+
+/* Increase space between heading and buttons */
+.Welcome-container h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 266px; /* Increase the bottom margin for more space */
   margin-top: 20px;
 }
 
-footer {
-  margin-top: auto;
-  padding: 20px;
-  text-align: center;
+.login-container h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 15px; /* Increase the bottom margin for more space */
+  margin-top: 200px;
 }
 
-.home-button {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-/* index.css */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.login-container {
-  background-color: #007bff;
-  color: white;
-  width: 100%;
-  max-width: 360px;
-  height: 640px;
-  border-radius: 30px;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-h1 {
-  font-size: 24px;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.input-container {
-  margin-bottom: 20px;
-}
-
-label {
+.Welcome-container h1 span {
   display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 48px;
+  margin-top: 0px;
 }
 
+/* Reduce space between buttons */
+.Welcome-container button,
+.verify-otp-button button {
+  max-width: 300px;
+  margin: 10px 0; /* Reduce the top and bottom margin to decrease space between buttons */
+}
+
+/* Footer Styles */
+footer {
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Input Styles */
 .input-wrapper {
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
-input {
+.input-wrapper .Input-Placeholder {
+  padding-left: 40px; /* Adjust this value to move the text cursor */
+  box-sizing: border-box; /* Ensure padding is included in the element's width */
   width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: white;
-  color: #333;
 }
 
-input::placeholder {
+/*.input-wrapper .input-icon {
+  position: absolute;
+  left: 10px;  Adjust the position of the icon */
+   /*pointer-events: none; Ensure the icon does not block the input 
+}*/
+
+.Input-Placeholder::placeholder {
+  margin-left: 0; /* No additional margin for placeholder */
+}
+
+.input-icon,
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   color: #999;
 }
 
 .input-icon {
-  position: absolute;
   left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
+}
+.page-container {
+  display: flex;
+  height: 100vh;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  background-color: #1a1a1a;
+}
+
+.login-header h1 {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 .password-toggle-icon {
-  position: absolute;
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
   cursor: pointer;
 }
 
-.sign-in-button,
-.verify-otp-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #00a86b;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
+/* OTP Input Styles */
 .otp-input {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  width: 100%;
 }
 
 .otp-input input {
@@ -252,9 +297,128 @@ input::placeholder {
   margin-right: 0;
 }
 
-@media (max-width: 600px) {
-  .login-container {
-    height: 100vh;
-    border-radius: 0;
+/* Welcome Container Specific Styles */
+.sign-in-button {
+  max-width: 300px;
+  margin: 30px 0;
+}
+
+/* Create Account Specific Styles */
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* New Styles for 3/4 and 1/4 layout */
+.page-container {
+  display: flex;
+  height: 100vh;
+}
+
+.registration-container {
+  flex: 3;
+  background-color: black; /* or any color you prefer */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+.company-image-container {
+  flex: 1;
+  background: url('download.jpg') no-repeat center center; /* Replace with your image URL */
+  background-size: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .content-wrapper {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .Welcome-container h1 {
+    font-size: 28px;
+  }
+
+  .Welcome-container h1 span {
+    font-size: 36px;
+  }
+
+  .otp-input input {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    width: 95%;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea,
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .Welcome-container button {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media (max-height: 600px) {
+  .Welcome-container h1 {
+    font-size: 24px;
+  }
+
+  .Welcome-container h1 span {
+    font-size: 32px;
+  }
+
+  form {
+    gap: 10px;
   }
 }

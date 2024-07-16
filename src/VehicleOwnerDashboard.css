@@ -1,0 +1,45 @@
+.dashboard {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .value {
+    font-size: 24px;
+  }
+  
+  .circle {
+    background-color: yellow;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .penalty {
+    color: red;
+    font-size: 24px;
+  }
+  
+  .fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
