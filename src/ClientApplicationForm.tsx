@@ -85,7 +85,6 @@ const MainForm: React.FC = () => {
               <input type="file" id="fileUpload" name="fileUpload" className="file-upload-input" />
             </div>
 
-
             <div className="button-container">
               <button type="submit">Save</button>
               <button type="button" className="apply-button">Apply</button>

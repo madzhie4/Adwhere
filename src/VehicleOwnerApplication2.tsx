@@ -52,7 +52,7 @@ const VehicleOwnerApplication2: React.FC = () => {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
-            onUploadProgress: (progressEvent) => {
+            onUploadProgress: (progressEvent: any) => {
                 if (progressEvent.total) {
                     const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
                     setProgress((prevProgress) => ({
@@ -62,12 +62,12 @@ const VehicleOwnerApplication2: React.FC = () => {
                 }
             },
         })
-            .then((response) => {
+            .then((response: any) => {
                 console.log(`${name} uploaded successfully`);
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 console.error(`Error uploading ${name}:`, error);
-            });
+            });            
     };
 
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {

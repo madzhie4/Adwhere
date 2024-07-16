@@ -321,6 +321,7 @@ body {
   
   label {
     font-weight: bold;
+    color: #000;
   }
   
   input[type="text"],
@@ -371,6 +372,11 @@ body {
 
   .item span {
     flex-grow: 1; /* Take up remaining space */
+    color: #000;
+  }
+
+  .client-ownership-info span{
+      color: #000;
   }
 
   .delete-button {
