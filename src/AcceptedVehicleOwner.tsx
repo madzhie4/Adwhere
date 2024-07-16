@@ -188,7 +188,7 @@ const VehicleOwnerForm = () => {
         </div>
         {formData.restrictedAreaMethod === 'pickOnMap' && (
           <div className="map-container">
-            <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+            <LoadScript googleMapsApiKey="AIzaSyDiXDSM9QtS7X3rG3Se_naPNBb57Qd5KLE">
               <GoogleMap
                 mapContainerStyle={{ width: '100%', height: '400px' }}
                 center={formData.mapCenter}

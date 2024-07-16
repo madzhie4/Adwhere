@@ -15,6 +15,7 @@ import VehicleOwnerApplication from './VehicleOwnerApplication';
 import VehicleOwnerApplication2 from './VehicleOwnerApplication2';
 import DriverApplicationForm from './DriverApplication';
 import AcceptedVehicleOwner from './AcceptedVehicleOwner';
+import VehicleOwnerPathway from './VehicleOwnerPathway';
 
 function MainApp() {
   return (
@@ -34,6 +35,7 @@ function MainApp() {
         <Route path="/VehicleOwnerApplication2" element={<VehicleOwnerApplication2 />} />
         <Route path="/DriverApplicationForm" element={<DriverApplicationForm />} />
         <Route path="/AcceptedVehicleOwner" element={<AcceptedVehicleOwner />} />
+        <Route path="/VehicleOwnerPathway" element={<VehicleOwnerPathway />} />
 
       </Routes>
     </Router>
