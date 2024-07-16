@@ -1,29 +1,23 @@
+// src/components/Header.tsx
 import React from 'react';
 import './Header.css';
-import { FaBars, FaSignOutAlt } from 'react-icons/fa';
 
 const Header: React.FC = () => {
     return (
         <header className="header">
             <div className="header-left">
-                <FaBars className="menu-icon" />
+                <img src="path-to-your-logo.png" alt="Logo" className="logo" />
                 <nav>
-                    <a href="#">Home</a>
-                    <a href="#">About us</a>
-                    <a href="#">Services</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Join us</a>
-                    <a href="#">Journeys</a>
+                    <a href="#about">About us</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#join">Join us</a>
+                    <a href="#journeys">Journeys</a>
                 </nav>
             </div>
             <div className="header-right">
-                <button className="sign-out-button">
-                    <FaSignOutAlt />
-                    Sign out
-                </button>
-                <span className="profile-button">
-                    Viwe Jack
-                </span>
+                <button className="login-button">Login</button>
+                <button className="create-account-button">Create account</button>
             </div>
         </header>
     );
