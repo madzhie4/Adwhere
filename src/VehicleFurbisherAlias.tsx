@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import './VehicleFurbisherAlias.css';
+import './index.css';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './components/SidebarData';
 import './components/Navbar';
-import { IconContext } from 'react-icons';
-
 
 const VehicleFurbisherAlias = () => {
 
@@ -16,6 +14,7 @@ const VehicleFurbisherAlias = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
+    
     <div className="page-container">
       <div className="navbar justify-between items-center mb-8">
         <Link to='#' className='menu-bars'>

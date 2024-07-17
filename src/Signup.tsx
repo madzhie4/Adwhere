@@ -1,4 +1,4 @@
-import './Signup.css';
+import './index.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 

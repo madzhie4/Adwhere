@@ -1,6 +1,5 @@
 import React from 'react';
-import '../ClientApplicationForm.css';
-import menuIcon from '../icons/menu.png';
+import '../index.css';
 import d_arrowIcon from '../icons/down-arrow.png';
 
 interface HeaderProps {

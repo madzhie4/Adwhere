@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import './AcceptedClient.css';
+import './index.css';
 import Header from './components/Header';
+import d_arrowIcon from './icons/down-arrow.png';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './components/SidebarData';
+import './components/Navbar';
 
 const AcceptedClient: React.FC = () => {
   const [numVehicles, setNumVehicles] = useState<number>(8);
@@ -11,6 +18,7 @@ const AcceptedClient: React.FC = () => {
   const [increasedSales, setIncreasedSales] = useState<boolean>(true);
   const [newCustomers, setNewCustomers] = useState<boolean>(false);
   const [adStartDate, setAdStartDate] = useState<string>('');
+  const [adEndDate, setAdEndDate] = useState<string>('');
   const [designFile, setDesignFile] = useState<File | null>(null);
   const [extraNote, setExtraNote] = useState<string>('');
 
@@ -39,18 +47,66 @@ const AcceptedClient: React.FC = () => {
       margin: '10px 0',
   };
 
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
   return (
+    
+        
     <div className="container my-5">
-      <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
+      {/* <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <li className="dropdown">
+          <a href="#applications" className="dropbtn">
+            Applications
+            <img src={d_arrowIcon} alt="arrow down" className="arrow-down" />
+          </a>
+          <div className="dropdown-content">
+            <a href="#driver">Driver</a>
+            <a href="#client">Client</a>
+            <a href="#vehicle">Vehicle</a>
+          </div>
+        </li>
+      </ul> */}
+      <div className="navbar justify-between items-center mb-8">
+          <Link to='#' className='menu-bars'>
+              {sidebar ? (
+              <AiIcons.AiOutlineClose onClick={showSidebar} />
+              ) : (
+              <FaIcons.FaBars onClick={showSidebar} />
+              )}
+          </Link>
+          <input type="text" placeholder="Search" className="search-bar" />
+      </div>
+
+      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+              <li className='navbar-toggle'>
+              <Link to='#' className='menu-bars'>
+                  <AiIcons.AiOutlineClose />
+              </Link>
+              </li>
+              {SidebarData.map((item, index) => {
+              return (
+                  <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                  </Link>
+                  </li>
+              );
+              })}
+          </ul>
+      </nav>
       <div className="form-section">
         <h3 className="mb-4">Vehicle Refurbishment</h3>
         <hr style={hrStyles}/>
         <div className="mb-3 vehicle-refurbishment">
           <label className="form-label">Number of vehicles</label>
           <div className="input-group">
-            <button className="btn btn-primary" onClick={() => handleDecrement(setNumVehicles)}>-</button>
+            <button className="btn-vehicles" onClick={() => handleDecrement(setNumVehicles)}>-</button>
             <input type="number" className="form-control text-center" value={numVehicles} readOnly />
-            <button className="btn btn-primary" onClick={() => handleIncrement(setNumVehicles)}>+</button>
+            <button className="btn-vehicles" onClick={() => handleIncrement(setNumVehicles)}>+</button>
           </div>
         </div>
         <div className="mb-3 vehicle-refurbishment">
@@ -99,6 +155,10 @@ const AcceptedClient: React.FC = () => {
           <label className="form-label">Start Date</label>
           <input type="date" className="form-control" value={adStartDate} onChange={(e) => setAdStartDate(e.target.value)} />
         </div>
+        <div className="mb-3">
+          <label className="form-label">End Date</label>
+          <input type="date" className="form-control" value={adEndDate} onChange={(e) => setAdEndDate(e.target.value)} />
+        </div>
       </div>
 
       <div className="form-section">
@@ -107,13 +167,13 @@ const AcceptedClient: React.FC = () => {
         <div className="form-check mb-3 ad-channel">
           <input className="form-check-input" type="checkbox" id="adIncreasedSales" checked={increasedSales} onChange={() => setIncreasedSales(!increasedSales)} />
           <label className="form-check-label" htmlFor="adIncreasedSales">
-            Increased current customer sales
+            Poster(Stickers)
           </label>
         </div>
         <div className="form-check mb-3 ad-channel">
           <input className="form-check-input" type="checkbox" id="adNewCustomers" checked={newCustomers} onChange={() => setNewCustomers(!newCustomers)} />
           <label className="form-check-label" htmlFor="adNewCustomers">
-            Get new customers
+            Video
           </label>
         </div>
 

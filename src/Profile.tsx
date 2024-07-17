@@ -1,31 +1,50 @@
-import React from 'react';
-import { FaBars, FaInfoCircle } from 'react-icons/fa';
-import './Profile.css';
+// src/Profile.tsx
+import React, { useState } from 'react';
+import './index.css';
+import infoIcon from './icons/info.png';
+import menuIcon from './icons/menu.png';
 
 const Profile: React.FC = () => {
+
+
     return (
-        <div className="profile-page">
-            <header className="profile-header">
-                <FaBars className="menu-icon" />
-                <h1>Profile</h1>
-            </header>
-            <div className="profile-content">
-                <button className="profile-button-one">
-                    Client
-                    <FaInfoCircle className="info-icon" />
-                </button>
-                <button className="profile-button-two">
-                    Vehicle Owner
-                    <FaInfoCircle className="info-icon" />
-                </button>
-                <button className="profile-button-three">
-                    Driver
-                    <FaInfoCircle className="info-icon" />
-                </button>
-                <button className="profile-button-four">
-                    Vehicle Refurbisher
-                    <FaInfoCircle className="info-icon" />
-                </button>
+        <div className="profile-container">
+            <img src={menuIcon} alt="menu" className="menu-icon" />
+            <h2>Profile</h2>
+            <div className="profile-option">
+                <button className="profile-button">Client</button>
+                <img
+                    src={infoIcon}
+                    alt="info"
+                    className="info-icon"
+                />
+            </div>
+            <div className="profile-option">
+                <button className="profile-button">Vehicle Owner</button>
+                <img
+                    src={infoIcon}
+                    alt="info"
+                    className="info-icon"
+
+                />
+            </div>
+            <div className="profile-option">
+                <button className="profile-button">Driver</button>
+                <img
+                    src={infoIcon}
+                    alt="info"
+                    className="info-icon"
+
+                />
+            </div>
+            <div className="profile-option">
+                <button className="profile-button">Vehicle Refurbisher</button>
+                <img
+                    src={infoIcon}
+                    alt="info"
+                    className="info-icon"
+
+                />
             </div>
         </div>
     );

@@ -1,8 +1,7 @@
 //Listing of dependencies and declaring
-
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import './VehicleFurbisherA1.css';
+import './index.css';
 import { useNavigate } from 'react-router-dom';
 import infoIcon from './icons/info-circle.png';
 import addIcon from './icons/add.png';

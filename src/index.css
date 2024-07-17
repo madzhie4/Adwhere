@@ -1,57 +1,2386 @@
-body {
+/* Global Styles */
+html, body {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: #000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.registration-container {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #1e90ff;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Client Application Form */
+header, footer {
+  width: 100%;
+  background-color: #f8f9fa; /* Example background color */
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+main {
+  margin-top: 60px; /* Adjust according to header height */
+  padding: 20px;
+}
+
+.menu-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.divider {
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+header {
+  background-color: #ffffff; /* Adjust background color as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* .navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+background-color: #ffffff; 
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem; 
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 20px; 
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333333; 
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff; 
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #333333;
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.menu-toggle {
+  display: none; 
+}
+
+.menu-toggle.open {
+  display: block;
+}
+
+.hamburger {
+  width: 20px; 
+  height: 3px;
+  background-color: #333333; 
+  margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.open .hamburger {
+  transform: rotate(45deg);
+}
+
+.menu-toggle.open .hamburger:before,
+.menu-toggle.open .hamburger:after {
+  transform: rotate(-90deg);
+}  */
+
+
+.dropbtn{
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff; /* Background color for mobile menu */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    display: block; /* Hide dropdown in mobile view */
+  }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #ffffff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links.open {
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-down {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  color: #000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.menu-toggle.open .hamburger:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.open .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .hamburger:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.title-client{
+  color: purple;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+.application-title{
+  text-align: center;
+}
+
+.form-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-weight: bold;
+  color: #000;
+}
+
+input[type="text"],
+select,
+input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+legend {
+  font-weight: bold;
+}
+
+.radio-group .radio-item{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart-add-icon {
+  margin-left: auto; /* Push the cart icon to the right */
+  cursor: pointer;
+}
+
+.item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.item span {
+  flex-grow: 1; /* Take up remaining space */
+  color: #000;
+}
+
+.client-ownership-info span{
+    color: #000;
+    margin-left: 0;
+}
+
+.delete-button {
+  background-color: #e74c3c;
   color: white;
-  min-height: 100vh;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.client-ownership-info span {
+  display: flex;
+  float: left;
+  text-align: center;
+  flex-direction: row;
+  align-items: center !important;
+}
+
+.info-icon {
+    width: 20px; 
+    height: 20px; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #000;
+  color: #fff;
+}
+
+button[type="button"] {
+  background-color: #000;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  background: #000;
+}
+
+.footer p{
+  color: #fff;
+  font-size: 12px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+}
+/* End of Client Application Form */
+
+
+/* Client Registration */
+
+.registration-form-page {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+  text-align: left;
+  padding: 20px;
+  background-color: #000000; /* Black background */
+  color: #faf9f9; /* Text color */
+}
+
+.registration-form-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #010202; /* Black background for header */
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.registration-form-content {
+  width: 100%;
+  max-width: 400px;
+  background-color: #010202; /* Black background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.title-container h2{
+  color: #e8c530;
+}
+
+.dropdown-button {
+  background-color: #010202; /* Black background for button */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.dropdown-button:hover {
+  background-color: #333; /* Darker background on hover */
+}
+.registration-form-content h1 {
+  text-align: center;
+  color: #e91e63; /* Pink color for the title */
+  margin-bottom: 20px;
+}
+
+.registration-form-content form {
   display: flex;
   flex-direction: column;
 }
 
-header {
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #faf9f9;
+}
+
+.form-group input, .form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white; /* White background for inputs */
+  color: black; /* Black text for inputs */
+}
+
+.gender-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between radio buttons */
+  color: white; /* White text for gender options */
+}
+
+.gender-options input {
+  margin: 0 5px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #51d5f3; /* Blue background for the button */
+  color: white; /* White text for the button */
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #464d53;
+}
+
+.home-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #51d5f3;
+}
+
+@media (max-width: 600px) {
+
+  .registration-form-page {
+      padding: 10px;
+  }
+
+  .form-group input, .form-group select {
+      padding: 8px;
+      font-size: 14px;
+  }
+
+  .menu-icon, .home-icon {
+      font-size: 20px;
+  }
+
+  button {
+      padding: 8px;
+      font-size: 0.9rem;
+  }
+
+}
+/* End of Client Registration */
+
+
+/* Driver Application Form */
+.driver-application-container {
+  max-height: 97vh; /* Adjust the height as needed */
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #8f1d1d;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.driver-application-form {
+  max-width: 880px;
+  margin: 0 auto;
+  margin-bottom: 13px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(136, 12, 12, 0.1);
+  overflow-y: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 48px;
+  color: #d8db16;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #777777;
+}
+
+.applications-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #333333;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.applications-button:hover {
+  background-color: #555555;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group textarea {
+  width: calc(100% - 10px);
+  padding: 5px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.file-input {
+  display: flex;
+  align-items: center;
+}
+
+.file-input button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-input button:hover {
+  background-color: #0056b3;
+}
+
+.file-status {
+  flex: 1;
+  font-size: 14px;
+  color: #777777;
+}
+
+.submit-group {
+  text-align: center;
+}
+
+.submit-group button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-group button:hover {
+  background-color: #218838;
+}
+
+.info-icon {
+  margin-left: 5px;
+  color: #777777;
+  cursor: pointer;
+}
+/* End of Driver Application Form */
+
+
+/* Driver Form */
+.driver-form-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.driver-form-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 0px; /* Adjust this value according to the header height */
+  padding-bottom: 60px; /* Adjust this value according to the footer height */
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  color: #ffffff; /* Pink color for the title */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #faf9f9;
+}
+
+.time-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.time-inputs input {
+  width: 48%;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white; /* White background for inputs */
+  color: black; /* Black text for inputs */
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.form-buttons button {
+  padding: 8px; /* Reduced padding */
+  border: none;
+  border-radius: 4px;
+  background-color: #ffd700; /* Yellow background for buttons */
+  color: black; /* Black text for buttons */
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.form-buttons button:disabled {
+  background-color: #ccc; /* Gray background for disabled buttons */
+  cursor: not-allowed;
+}
+
+.form-buttons button:hover {
+  background-color: #f7c200; /* Darker yellow on hover */
+}
+
+button[type="submit"] {
+  background-color: #d4af37;
+  color: #fff;
+}
+
+button[type="button"] {
+  background-color: #d4af37;
+  color: #fff;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+  .form-buttons {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .form-buttons button {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .form-buttons button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+  }
+}
+/* End of Driver Form */
+
+
+/* Furbisher  */
+.furbisher-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-container {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-ownership-info {
+  margin-bottom: 20px;
+}
+
+.file-upload-wrapper {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.proof-existance span{
+  float: left;
+  margin-left: 0;
+}
+
+/* Responsive styles */
+@media (min-width: 600px) {
+  .button-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  button {
+    flex: 1;
+  }
+
+
+}
+/* End of Furbisher */
+
+
+/* Profile */
+.profile-page {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+  padding: 20px;
+  background-color: #000000; /* White background */
+  color: #faf9f9; /* Text color */
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000; /* Blue background for header */
+  color: #fff;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.profile-content {
+  margin-top: 20px;
+}
+
+.profile-button-one {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 15px 20px;
+  width: 200px;
+  background-color: #720d30; /* Blue background for buttons */
+  color: white; /* White text */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.profile-button-two {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 15px 20px;
+  width: 200px;
+  background-color: #e8c530; /* Blue background for buttons */
+  color: white; /* White text */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.profile-button-three {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 15px 20px;
+  width: 200px;
+  background-color: #37a6e7; /* Blue background for buttons */
+  color: white; /* White text */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.profile-button-four {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 15px 20px;
+  width: 200px;
+  background-color: #499b66; /* Blue background for buttons */
+  color: white; /* White text */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.info-icon {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+
+  .profile-page {
+      padding: 10px;
+  }
+
+  .profile-button-one,
+  .profile-button-two,
+  .profile-button-three,
+  .profile-button-four {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+  }
+
+  .menu-icon,
+  .info-icon {
+      font-size: 20px;
+  }
+}
+/* End of Profile */
+
+
+/* Vehicle Furbisher A1 */
+.add-icon {
+  margin-left: auto; /* Push the cart icon to the right */
+  cursor: pointer;
+}
+
+input[type="number"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 100px;
+}
+
+.title-vehicle{
+  color: yellow;
+}
+
+.application-title h1{
+  font-size: 2.25rem;
+}
+
+.button-container .next-button{
+  margin-left: auto;
+  max-width: 100px;
+}
+
+.proof-ownership span{
+  float: left;
+  margin-left: 0;
+}
+/* End of Vehicle Furbisher A1 */
+
+
+
+/* Vehicle Furbisher Alias */
+.page-container {
+  padding: 16px;
+  margin-top: 60px;
+  
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.vehicle-req {
+  display: flex;
+  border: 3px solid #000; 
+  border-radius: 15px; 
+  overflow: hidden;
+}
+
+/* .section {
+  flex: 1;
+  padding: 10px 20px;
+  text-align: center;
+  border-right: 3px solid #000; 
+} */
+
+.section:last-child {
+  border-right: none; 
+}
+
+
+.mb-8 {
+  margin-bottom: 32px;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.p-2 {
+  padding: 8px;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+.text-center {
+  text-align: left;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.font-bold {
+  font-weight: bold;
+  margin: 0;
+}
+
+.text-lime-500 {
+  color: #84cc16;
+}
+
+.grid {
+  display: flex;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.gap-8 {
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.col-span-2{
+  width: 100%;
+}
+
+.vehicle-container,
+.confirmation-container {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-right: auto;
+}
+
+.furbish-container{
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 40%;
+}
+
+.furbish-container h2,
+.vehicle-container h2,
+.confirmation-container h2 {
+  margin-bottom: 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+.space-x-2 > * + * {
+  margin-left: 8px;
+}
+
+.text-white {
+  color: #000;
+}
+
+.px-2 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.py-1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+.flex.items-center {
+  display: flex;
+  align-items: center;
+}
+
+.space-x-2 > * + * {
+  margin-left: 8px;
+}
+
+.space-x-1 > * + * {
+  margin-left: 4px;
+}
+
+.vehicle-no{
+  background-color: #eab308;
+  padding: 16px;
+  font-weight: 900;
+  max-width: 55px;
+}
+
+.search-bar {
+  float: right;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: 40px;
+} 
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.min-w-full {
+  min-width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.bg-yellow-500 {
+  background-color: #eab308;
+}
+
+.bg-purple-500 {
+  background-color: #a855f7;
+}
+
+.bg-black {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.border-b {
+  border-bottom: 1px solid #e5e7eb;
+}
+/* End of Vehicle Furbisher Alias */
+
+
+/* Vehicle Owner Application */
+.application-form-page {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+  text-align: left;
+  background-color: #000000; /* Black background */
+  color: #faf9f9; /* Text color */
+}
+
+.application-form-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #000000; /* Black background for header */
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.application-form-content {
+  width: 100%;
+  background-color: #000000; /* Black background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #0066cc;
+  margin-bottom: 20px;
 }
 
-.menu-icon, .search-icon {
+.application-form-content h1 {
+  text-align: center;
+  color: #ffeb3b; /* Yellow color for the title */
+  margin-bottom: 5px;
+}
+
+.application-form-content h2 {
+  color: #e91e63; /* Pink color for the subtitle */
+}
+
+.dropdown-button {
+  background-color: #010202; /* Black background for button */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.dropdown-button:hover {
+  background-color: #333; /* Darker background on hover */
+}
+
+.application-form-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #faf9f9;
+}
+
+.form-group input, .form-group select {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white; /* White background for inputs */
+  color: black; /* Black text for inputs */
+}
+
+.info-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #faf9f9;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #51d5f3; /* Blue background for the button */
+  color: white; /* White text for the button */
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #464d53;
+}
+
+.form-group-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.car-icon {
+
+  justify-items: left;
+  font-size: 40px;
+  cursor: pointer;
+  color: #51d5f3;
+
+}
+.car-icon:hover{
+  color: #464d53;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+@media (max-width: 600px) {
+  .application-form-page {
+      padding: 10px;
+  }
+
+  .form-group input, .form-group select {
+      padding: 8px;
+      font-size: 14px;
+  }
+
+  .menu-icon, .info-icon{
+      font-size: 20px;
+  }
+  .car-icon {
+      transform: translateX(-10px);
+      font-size: 30px;
+  }
+
+  button {
+      padding: 8px;
+      font-size: 0.9rem;
+  }
+
+  .dropdown-button {
+      font-size: 0.9rem;
+      padding: 4px 8px;
+  }
+}
+@media (max-width: 400px) {
+  .application-form-page {
+      padding: 14px;
+  }
+
+  .form-group input, .form-group select {
+      padding: 6px;
+      font-size: 12px;
+  }
+
+  .menu-icon, .info-icon{
+      padding: 2px;
+      font-size: 16px;
+  }
+  .car-icon {
+      transform: translateX(-10px);
+      font-size: 30px;
+  }
+
+  button {
+      padding: 6px;
+      font-size: 0.7rem;
+  }
+
+  .dropdown-button {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+  }
+}
+/* End of Vehicle Owner Application */
+
+
+
+/* Vehicle Owner Dashboard */
+.dashboard {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.value {
   font-size: 24px;
 }
 
+.circle {
+  background-color: yellow;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.penalty {
+  color: red;
+  font-size: 24px;
+}
+
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+/* End of Vehicle Owner Dashboard  */
+
+
+/* Sign up */
+.signup-form {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+  background-color: #000000; /* Blue background */
+  border-radius: 8px;
+  color: white;
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.signup-form .input-container {
+  margin-bottom: 1rem;
+}
+
+.signup-form .input-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: white; /* Label color */
+}
+
+.signup-form .input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 4px;
+}
+
+.signup-form .input-wrapper .icon {
+  position: absolute;
+  left:35px;
+  top: 8px;
+  color: #3a4046;
+}
+
+.signup-form .input-wrapper input {
+  padding: 0.5rem 0.5rem 0.5rem 30px;
+  left : 30px;
+  border: none;
+  border-radius: 4px;
+  margin-left: 30px;
+  background: white;
+  color: black; /* Black text for input fields */
+}
+
+.signup-form .password-toggle {
+  position: relative;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #33393f;
+}
+.signup-form .password-toggle-icon {
+  top: 17px
+}
+
+.signup-form button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #333; /* Dark background for the button */
+  color: white; /* White text for the button */
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.signup-form button:hover {
+  background-color: #000000;
+}
+
+.signup-form .error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .signup-form .input-wrapper input {
+      width: calc(100% - 50px);
+      margin-left: 0;
+      padding-left: 30px;
+  }
+
+  .signup-form .input-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .signup-form .input-wrapper .icon {
+      left: 10px;
+      top: 12px;
+  }
+
+  .signup-form button {
+      width: 100%;
+  }
+}
+/* End of Sign up */
+
+
+/* Accepted Vehicle Owner */
+.vehicle-owner-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: yellow;
+  display: flex;
+  align-items: center;
+}
+
+.checkmark {
+  background-color: green;
+  border-radius: 50%;
+  padding: 2px 5px;
+  margin-left: 10px;
+}
+
+.id {
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-left: auto;
+  font-size: 0.8em;
+}
+
+.form-group {
+  background-color: #444;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="time"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  border: none;
+  color: black;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 150px;
+  background-color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.time-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #666;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button,
+.submit-journey-button,
+.save-button {
+  background-color: #DAA520;
+  color: black;
+}
+
+.edit-button {
+  background-color: #ccc;
+  color: black;
+}
+
+.add-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  margin-top: 5px;
+}
+/* ... (previous CSS) ... */
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.calendar-container .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.calendar-container .react-datepicker__input-container input {
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  border: none;
+  color: black;
+  margin-bottom: 10px;
+}
+/* End of Accpted Vehicle Owner */
+
+
+/* Accepted Client */
+.form-label{
+  color: #000;
+}
+
+h3{
+  margin-top: 2rem;
+  color: #000;
+}
+
+.form-check-label{
+  color: #000;
+  margin-left: 10px;
+}
+
+.form-check input[type="checkbox"]{
+  width: 16px;
+  height: 16px;
+}
+
+.vehicle-refurbishment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vehicle-refurbishment .form-label {
+  flex: 1; 
+  margin-right: 10px; 
+}
+
+.vehicle-refurbishment .input-group {
+  display: flex;
+  align-items: center;
+}
+
+.customer, .ad-channel{
+  display: flex;
+}
+
+input[type="date"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  margin-right: auto;
+}
+
+.button-container-4 {
+  display: grid;
+  gap: 10px;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.button-row button {
+  flex: 1;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-submit-journey {
+  background-color: #008CBA;
+  color: white;
+}
+
+.btn-save {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #5bc0de;
+  color: white;
+}
+
+
+button[type="button"] {
+  background-color: #000;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  min-width: 1200px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 2rem;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.form-section {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-refurbishment,
+.customer,
+.ad-channel,
+textarea,
+input[type="date"],
+input[type="file"] {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group button {
+  flex: 0 0 auto;
+}
+
+.input-group input {
+  flex: 1;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+    margin-top: 2rem;
+  }
+
+  .form-section {
+    width: 100%;
+  }
+
+  .vehicle-refurbishment,
+  .customer,
+  .ad-channel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vehicle-refurbishment .form-label,
+  .vehicle-refurbishment .input-group {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-row button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+/* End of Accepted Client */
+
+
+
+/* Home Page */
+.home-page {
+  margin-top: 60px;
+  padding: 60px;
+  color: #000;
+}
+
+.title-and-search h1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: purple;
+}
+
+.main-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: auto; /* Pushes dropdown to the right */
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+
+.section-title {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  line-height: 1.6;
+}
+
+.how-we-work {
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .title-and-search {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .search-bar {
+      width: 100%;
+      margin-top: 10px;
+  }
+
+  .dropdown {
+      margin-left: 0;
+      margin-top: 10px;
+  }
+
+  .sections {
+      flex-direction: column;
+  }
+
+  .section {
+      width: 100%;
+  }
+}
+/* End of Home Page */
+
+
+/* Services */
+.our-services-page{
+  margin-top: 60px;
+  padding: 60px;
+}
+
+.services-sections {
+  display: flex;
+  flex-wrap: column;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.section {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33% - 40px);
+  max-width: 350px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.apply-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: purple;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.apply-button:hover {
+  opacity: 80%;
+}
+
+.video-container {
+  margin-top: 20px;
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+      flex: 1 1 calc(50% - 40px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+      flex: 1 1 100%;
+  }
+
+  .section-title {
+      font-size: 1.25rem;
+  }
+
+  .section-description {
+      font-size: 0.9rem;
+  }
+
+  .apply-button {
+      padding: 8px 16px;
+  }
+}
+
+/* End of Services */
+
+
+/* About Us */
+.about-us {
+  max-width: 1200px;
+  margin-top: 60px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
 h1 {
-  font-size: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.about-text {
+  margin-top: 30px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .about-us {
+      padding: 15px;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .about-text {
+      font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-us {
+      padding: 10px;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .about-text {
+      font-size: 0.9rem;
+  }
+}
+
+/* End of About Us */
+
+
+/* Common Container Styles */
+.Welcome-container,
+.registration-container,
+.login-container,
+.signup-form {
+  flex: 1;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+.adwhere{
+  color: #007bff;
+}
+.adwhere .highlight{
+  color:white;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px; /* Ensure padding on the sides to prevent horizontal scroll */
+  box-sizing: border-box; /* Include padding in the element's width */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  background-color: black;
+}
+
+.heading h1{
+  color: #ffeb3b;
+  font-size: 40px; 
+}
+
+.menu-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 24px;
+}
+
+/* Typography */
+h1 {
+  font-size: 48px;
+  text-align: center;
   margin: 0;
 }
 
 h2 {
   font-size: 18px;
-  margin: 20px 0 10px 20px;
+  margin: 0;
 }
 
+/* Form Styles */
 form {
-  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.form-group,
+.input-container {
+  width: 100%;
+  padding: 0 20px; /* Add padding to ensure consistent spacing */
+  box-sizing: border-box; /* Include padding in the element's width */
+  /* display: flex; */
+  justify-content: flex-start; 
 }
 
 label {
@@ -62,14 +2391,18 @@ label {
 
 input[type="text"],
 input[type="date"],
+input[type="email"],
+input[type="password"],
 select,
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
   background-color: white;
-  color: #333;
+  color: #616161;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .radio-group {
@@ -86,154 +2419,141 @@ input[type="radio"] {
   margin-right: 5px;
 }
 
-/* Location specific styles */
-.location-section {
-  background-color: #4da6ff;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.location-section .form-group {
-  margin-bottom: 10px;
-}
-
-.location-section input,
-.location-section select {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.location-section input::placeholder,
-.location-section select::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.location-section label {
-  font-weight: bold;
-}
-
-.register-button {
+/* Button Styles */
+.register-button,
+.sign-in-button,
+.Welcome-container button,
+.verify-otp-button button,
+.signup-form button[type="submit"] {
   width: 100%;
   padding: 15px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #007bff;
+  color: #f4f4f7;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+}
+
+.Welcome-container button:hover,
+.signup-form button[type="submit"]:hover {
+  background-color: #444444;
+}
+
+/* Increase space between heading and buttons */
+.Welcome-container h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 266px; /* Increase the bottom margin for more space */
   margin-top: 20px;
 }
 
-footer {
-  margin-top: auto;
-  padding: 20px;
-  text-align: center;
+.login-container h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 15px; /* Increase the bottom margin for more space */
+  margin-top: 200px;
 }
 
-.home-button {
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-/* index.css */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.login-container {
-  background-color: #007bff;
-  color: white;
-  width: 100%;
-  max-width: 360px;
-  height: 640px;
-  border-radius: 30px;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-h1 {
-  font-size: 24px;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.input-container {
-  margin-bottom: 20px;
-}
-
-label {
+.Welcome-container h1 span {
   display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 48px;
+  margin-top: 0px;
 }
 
+/* Reduce space between buttons */
+.Welcome-container button,
+.verify-otp-button button {
+  max-width: 300px;
+  margin: 10px 0; /* Reduce the top and bottom margin to decrease space between buttons */
+}
+
+/* Footer Styles */
+footer {
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Input Styles */
 .input-wrapper {
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
-input {
+.input-wrapper .Input-Placeholder {
+  padding-left: 40px; /* Adjust this value to move the text cursor */
+  box-sizing: border-box; /* Ensure padding is included in the element's width */
   width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: white;
-  color: #333;
 }
 
-input::placeholder {
+/*.input-wrapper .input-icon {
+  position: absolute;
+  left: 10px;  Adjust the position of the icon */
+   /*pointer-events: none; Ensure the icon does not block the input 
+}*/
+
+.Input-Placeholder::placeholder {
+  margin-left: 0; /* No additional margin for placeholder */
+}
+
+.input-icon,
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   color: #999;
 }
 
 .input-icon {
-  position: absolute;
   left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
+}
+.page-container {
+  display: flex;
+  height: 100vh;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  background-color: #1a1a1a;
+}
+
+.login-header h1 {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 .password-toggle-icon {
-  position: absolute;
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
   cursor: pointer;
 }
 
-.sign-in-button,
-.verify-otp-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #00a86b;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
+/* OTP Input Styles */
 .otp-input {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  width: 100%;
 }
 
 .otp-input input {
@@ -248,9 +2568,128 @@ input::placeholder {
   margin-right: 0;
 }
 
-@media (max-width: 600px) {
-  .login-container {
-    height: 100vh;
-    border-radius: 0;
+/* Welcome Container Specific Styles */
+.sign-in-button {
+  max-width: 300px;
+  margin: 30px 0;
+}
+
+/* Create Account Specific Styles */
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* New Styles for 3/4 and 1/4 layout */
+.page-container {
+  display: flex;
+  height: 100vh;
+}
+
+.registration-container {
+  flex: 3;
+  background-color: black; /* or any color you prefer */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+.company-image-container {
+  flex: 1;
+  background: url('download.jpg') no-repeat center center; /* Replace with your image URL */
+  background-size: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .content-wrapper {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .Welcome-container h1 {
+    font-size: 28px;
+  }
+
+  .Welcome-container h1 span {
+    font-size: 36px;
+  }
+
+  .otp-input input {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    width: 95%;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea,
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .Welcome-container button {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media (max-height: 600px) {
+  .Welcome-container h1 {
+    font-size: 24px;
+  }
+
+  .Welcome-container h1 span {
+    font-size: 32px;
+  }
+
+  form {
+    gap: 10px;
   }
 }

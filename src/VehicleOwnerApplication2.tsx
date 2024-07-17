@@ -1,4 +1,4 @@
-import './VehicleOwnerApplication.css';
+import './index.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { FaBars, FaCar, FaInfoCircle, FaChevronDown } from 'react-icons/fa';

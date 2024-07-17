@@ -1,7 +1,7 @@
 //Listing of dependencies and declaring
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import './Furbisher.css';
+import './index.css';
 import menuIcon from './icons/menu.png';
 import d_arrowIcon from './icons/down-arrow.png';
 import Header from './components/Header';

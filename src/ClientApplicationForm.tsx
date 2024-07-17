@@ -1,8 +1,7 @@
 //Listing of dependencies and declaring
-
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import './ClientApplicationForm.css';
+import './index.css';
 import infoIcon from './icons/info-circle.png';
 import cartIcon from './icons/cart-add.png';
 import menuIcon from './icons/menu.png';
