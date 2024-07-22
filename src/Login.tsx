@@ -3,6 +3,7 @@
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import { FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
 import './index.css';
+import { useNavigate  } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,6 +24,8 @@ const Login = () => {
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+
+  const navigate = useNavigate ();
 
   const handleSignIn = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -46,6 +49,8 @@ const Login = () => {
     } catch (error) {
       console.error('Error requesting OTP:', error);
     }
+
+    navigate('/homepage');
   };
 
   const handleVerifyOtp = async () => {
@@ -77,64 +82,68 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="auth-page">
+      <div className="auth-container">
         <h1>Login</h1>
-
-      {!otpSent ? (
-        <>
-          <div className="input-container">
-            <label>Email</label>
-            <div className="input-wrapper">
-              <FaEnvelope className="input-icon" />
+        {!otpSent ? (
+          <>
+            <div className="form-group">
+              <label>Email</label>
+              <div className="input-box">
+                <FaEnvelope className="icon-envelope" />
+                <input
+                  className="input-field"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <div className="input-box">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter your password"
+                  className="input-field"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+                {showPassword ? (
+                  <FaEyeSlash className="icon-toggle-password" onClick={togglePasswordVisibility} />
+                ) : (
+                  <FaEye className="icon-toggle-password" onClick={togglePasswordVisibility} />
+                )}
+              </div>
+            </div>
+            <button className="btn-sign-in" onClick={handleSignIn}>
+              Login
+            </button>
+            <p className="create-account">
+                Don't have an account? <a href="/signup" className="create-account-link">Create Account</a><br></br>
+                <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
+            </p>
+          </>
+        ) : (
+          <>
+            <div className="form-group">
+              <label>Enter OTP</label>
               <input
-                className='Input-Placeholder'
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={handleEmailChange}
+                type="text"
+                placeholder="Enter OTP"
+                value={otp}
+                onChange={handleOtpChange}
               />
             </div>
-          </div>
-
-          <div className="input-container">
-            <label>Password</label>
-            <div className="input-wrapper">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                placeholder="Enter your password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-              {showPassword ? (
-                <FaEyeSlash className="password-toggle-icon" onClick={togglePasswordVisibility} />
-              ) : (
-                <FaEye className="password-toggle-icon" onClick={togglePasswordVisibility} />
-              )}
-            </div>
-          </div>
-
-          <button className="sign-in-button" onClick={handleSignIn}>
-            Sign In
-          </button>
-        </>
-      ) : (
-        <>
-          <div className="input-container">
-            <label>Enter OTP</label>
-            <input
-              type="text"
-              placeholder="Enter OTP"
-              value={otp}
-              onChange={handleOtpChange}
-            />
-          </div>
-
-          <button className="verify-otp-button" onClick={handleVerifyOtp} disabled={verificationInProgress}>
-            Verify OTP
-          </button>
-        </>
-      )}
+            <button className="btn-verify-otp" onClick={handleVerifyOtp} disabled={verificationInProgress}>
+              Verify OTP
+            </button>
+          </>
+        )}
+      </div>
     </div>
+
   );
 };
 

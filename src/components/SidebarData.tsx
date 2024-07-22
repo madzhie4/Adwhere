@@ -8,7 +8,7 @@ import { FaEnvelope } from 'react-icons/fa';
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
+    path: '/homepage',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },

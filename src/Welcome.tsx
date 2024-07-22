@@ -1,13 +1,17 @@
 import React from 'react';
 import './index.css';
+import { Link } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 
 function Welcome() {
+  const navigate = useNavigate ();
+
   const handleCreateAccount = () => {
-    alert('Create Account button clicked');
+    navigate('/signup');
   };
 
   const handleLogin = () => {
-    alert('Log In button clicked');
+    navigate('/login');
   };
 
   return (
@@ -16,7 +20,7 @@ function Welcome() {
             <h1>
             Welcome to
             <span className="adwhere">
-                Ad<span className="highlight" style={{ display: 'inline' }}>w</span>here
+                Adwhere
             </span>
             </h1>
             <button onClick={handleCreateAccount}>Create account</button>

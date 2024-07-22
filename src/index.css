@@ -28,7 +28,7 @@ code {
 /* Client Application Form */
 header, footer {
   width: 100%;
-  background-color: #f8f9fa; /* Example background color */
+  background-color: #f8f9fa;
 }
 
 footer {
@@ -36,11 +36,11 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 1000;
 }
 
 main {
-  margin-top: 60px; /* Adjust according to header height */
+  margin-top: 60px;
   padding: 20px;
 }
 
@@ -62,104 +62,14 @@ main {
 }
 
 header {
-  background-color: #ffffff; /* Adjust background color as needed */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
 }
-
-/* .navbar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 10px 20px;
-background-color: #ffffff; 
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-width: 100%;
-position: fixed;
-top: 0;
-left: 0;
-z-index: 1000;
-}
-
-.logo {
-  font-size: 1.5rem; 
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-}
-
-.nav-links li {
-  margin-left: 20px; 
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333333; 
-  padding: 10px;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #007bff; 
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #ffffff;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: #333333;
-  padding: 10px 20px;
-  display: block;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover {
-  background-color: #f9f9f9;
-}
-
-.menu-toggle {
-  display: none; 
-}
-
-.menu-toggle.open {
-  display: block;
-}
-
-.hamburger {
-  width: 20px; 
-  height: 3px;
-  background-color: #333333; 
-  margin: 5px 0;
-  transition: transform 0.3s ease;
-}
-
-.menu-toggle.open .hamburger {
-  transform: rotate(45deg);
-}
-
-.menu-toggle.open .hamburger:before,
-.menu-toggle.open .hamburger:after {
-  transform: rotate(-90deg);
-}  */
-
 
 .dropbtn{
   border: 1px solid #000;
@@ -174,7 +84,7 @@ z-index: 1000;
     top: 60px;
     left: 0;
     right: 0;
-    background-color: #ffffff; /* Background color for mobile menu */
+    background-color: #ffffff;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 100;
   }
@@ -195,7 +105,7 @@ z-index: 1000;
   }
 
   .dropdown {
-    display: block; /* Hide dropdown in mobile view */
+    display: block; 
   }
 }
 
@@ -304,7 +214,7 @@ z-index: 1000;
 }
 
 .title-client{
-  color: purple;
+  color: #6a1b9a;
 }
 
 h1 {
@@ -343,6 +253,7 @@ input[type="file"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
+  font-size: 16px;
 }
 
 fieldset {
@@ -367,7 +278,7 @@ legend {
 }
 
 .cart-add-icon {
-  margin-left: auto; /* Push the cart icon to the right */
+  margin-left: auto;
   cursor: pointer;
 }
 
@@ -383,7 +294,7 @@ legend {
 }
 
 .item span {
-  flex-grow: 1; /* Take up remaining space */
+  flex-grow: 1;
   color: #000;
 }
 
@@ -398,6 +309,7 @@ legend {
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
@@ -420,7 +332,8 @@ legend {
 
 .button-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
 }
 
 button {
@@ -430,13 +343,8 @@ button {
   cursor: pointer;
 }
 
-button[type="submit"] {
-  background-color: #000;
-  color: #fff;
-}
-
 button[type="button"] {
-  background-color: #000;
+  background-color: #6a1b9a;
   color: #fff;
 }
 
@@ -567,16 +475,17 @@ button:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  background-color: white; /* White background for inputs */
-  color: black; /* Black text for inputs */
+  background-color: white;
+  color: black;
 }
 
 .gender-options {
+  float: left;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px; /* Space between radio buttons */
-  color: white; /* White text for gender options */
+  gap: 10px;
+  color: white;
+  margin: 0;
 }
 
 .gender-options input {
@@ -593,8 +502,8 @@ button {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #51d5f3; /* Blue background for the button */
-  color: white; /* White text for the button */
+  background-color: #51d5f3; 
+  color: white;
   font-size: 1rem;
   cursor: pointer;
   margin-top: 20px;
@@ -636,54 +545,51 @@ button:hover {
 
 /* Driver Application Form */
 .driver-application-container {
-  max-height: 97vh; /* Adjust the height as needed */
-  overflow-y: auto;
+  max-width: 1200px; /* Adjusted for two sections */
+  margin: 20px auto;
   padding: 20px;
-  border-radius: 5px;
-  background-color: #8f1d1d;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.driver-application-form {
-  max-width: 880px;
-  margin: 0 auto;
-  margin-bottom: 13px;
-  padding: 20px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(136, 12, 12, 0.1);
-  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
 }
 
 .header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
 .header h1 {
   margin: 0;
-  font-size: 48px;
-  color: #d8db16;
+  font-size: 24px;
+  color: #333;
 }
 
 .header h2 {
   margin: 0;
   font-size: 18px;
-  color: #777777;
+  color: #666;
 }
 
 .applications-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #333333;
-  color: #ffffff;
-  border-radius: 4px;
+  font-size: 16px;
+  color: #007bff;
   cursor: pointer;
 }
 
-.applications-button:hover {
-  background-color: #555555;
+.form-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-section {
+  flex: 1;
+  min-width: 300px;
 }
 
 .form-group {
@@ -694,20 +600,15 @@ button:hover {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #333333;
 }
 
 .form-group input[type="text"],
-.form-group input[type="file"],
 .form-group textarea {
-  width: calc(100% - 10px);
-  padding: 5px;
-  border: 1px solid #cccccc;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 4px;
-}
-
-.form-group textarea {
-  resize: vertical;
+  box-sizing: border-box;
 }
 
 .file-input {
@@ -716,85 +617,97 @@ button:hover {
 }
 
 .file-input button {
-  margin-right: 10px;
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
+  padding: 8px 16px;
   border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
   cursor: pointer;
+  margin-right: 10px;
 }
 
-.file-input button:hover {
-  background-color: #0056b3;
+.file-input input[type="file"] {
+  display: none;
 }
 
 .file-status {
-  flex: 1;
+  color: #666;
+}
+
+.error {
+  color: #ff0000;
   font-size: 14px;
-  color: #777777;
 }
 
-.submit-group {
-  text-align: center;
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
-.submit-group button {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.form-actions .save-button{
+  background-color: #965bbb;
 }
 
-.submit-group button:hover {
-  background-color: #218838;
+.save-button:hover {
+  background-color: #4a148c;
 }
 
-.info-icon {
-  margin-left: 5px;
-  color: #777777;
-  cursor: pointer;
+/* Responsive styling */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .applications-button {
+    margin-top: 10px;
+  }
+
+  .form-sections {
+    flex-direction: column;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  
 }
+
 /* End of Driver Application Form */
 
 
 /* Driver Form */
 .driver-form-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  max-width: 800px;
+  margin-top: 100px;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .driver-form-page {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  padding-top: 0px; /* Adjust this value according to the header height */
-  padding-bottom: 60px; /* Adjust this value according to the footer height */
-  box-sizing: border-box;
+  text-align: center;
 }
 
 .title {
-  text-align: center;
-  color: #ffffff; /* Pink color for the title */
+  font-size: 24px;
   margin-bottom: 20px;
+  color: #444;
 }
 
 .form-group {
-  margin-bottom: 15px;
-  width: 100%;
-  max-width: 400px;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .form-group label {
   display: block;
+  font-weight: bold;
   margin-bottom: 5px;
-  color: #faf9f9;
 }
 
 .time-inputs {
@@ -804,76 +717,64 @@ button:hover {
 
 .time-inputs input {
   width: 48%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.form-group input, .form-group textarea {
+textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: white; /* White background for inputs */
-  color: black; /* Black text for inputs */
-}
-
-.form-buttons {
-  display: flex;
-  justify-content: space-between;
-
-}
-
-.form-buttons button {
-  padding: 8px; /* Reduced padding */
-  border: none;
-  border-radius: 4px;
-  background-color: #ffd700; /* Yellow background for buttons */
-  color: black; /* Black text for buttons */
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.form-buttons button:disabled {
-  background-color: #ccc; /* Gray background for disabled buttons */
-  cursor: not-allowed;
-}
-
-.form-buttons button:hover {
-  background-color: #f7c200; /* Darker yellow on hover */
-}
-
-button[type="submit"] {
-  background-color: #d4af37;
-  color: #fff;
-}
-
-button[type="button"] {
-  background-color: #d4af37;
-  color: #fff;
+  border-radius: 5px;
 }
 
 .error {
   color: red;
-  font-size: 0.8rem;
-  margin-top: 5px;
+  font-size: 14px;
 }
 
-/* Media Queries for Mobile Devices */
-@media (max-width: 600px) {
-  .form-buttons {
-      flex-direction: column;
-      align-items: center;
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .driver-form-container {
+      max-width: 1000px;
+  }
+}
+
+@media (max-width: 992px) {
+  .driver-form-container {
+      max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .driver-form-container {
+      max-width: 600px;
   }
 
-  .form-buttons button {
+  .time-inputs {
+      flex-direction: column;
+  }
+
+  .time-inputs input {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .button-row {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .btn {
       width: 100%;
       margin-bottom: 10px;
   }
 }
 
-@media (max-width: 400px) {
-  .form-buttons button {
-      padding: 8px 16px;
-      font-size: 0.9rem;
+@media (max-width: 576px) {
+  .driver-form-container {
+      max-width: 400px;
   }
 }
 /* End of Driver Form */
@@ -908,6 +809,10 @@ form {
   flex-direction: column;
 }
 
+.button-container .save-button{
+  background-color: #965bbb;
+}
+
 .client-ownership-info {
   margin-bottom: 20px;
 }
@@ -919,19 +824,6 @@ form {
 label {
   margin-bottom: 5px;
   font-weight: bold;
-}
-
-input[type="file"] {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 button {
@@ -970,15 +862,15 @@ button {
   padding: 1rem;
   text-align: center;
   padding: 20px;
-  background-color: #000000; /* White background */
-  color: #faf9f9; /* Text color */
+  background-color: #000000;
+  color: #faf9f9;
 }
 
 .profile-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #000000; /* Blue background for header */
+  background-color: #000000;
   color: #fff;
 }
 
@@ -998,8 +890,8 @@ button {
   margin: 10px auto;
   padding: 15px 20px;
   width: 200px;
-  background-color: #720d30; /* Blue background for buttons */
-  color: white; /* White text */
+  background-color: #720d30;
+  color: white;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -1012,8 +904,8 @@ button {
   margin: 10px auto;
   padding: 15px 20px;
   width: 200px;
-  background-color: #e8c530; /* Blue background for buttons */
-  color: white; /* White text */
+  background-color: #e8c530;
+  color: white;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -1026,8 +918,8 @@ button {
   margin: 10px auto;
   padding: 15px 20px;
   width: 200px;
-  background-color: #37a6e7; /* Blue background for buttons */
-  color: white; /* White text */
+  background-color: #37a6e7;
+  color: white;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -1041,8 +933,8 @@ button {
   margin: 10px auto;
   padding: 15px 20px;
   width: 200px;
-  background-color: #499b66; /* Blue background for buttons */
-  color: white; /* White text */
+  background-color: #499b66;
+  color: white;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -1079,7 +971,7 @@ button {
 
 /* Vehicle Furbisher A1 */
 .add-icon {
-  margin-left: auto; /* Push the cart icon to the right */
+  margin-left: auto; 
   cursor: pointer;
 }
 
@@ -1095,10 +987,11 @@ input[type="number"] {
 }
 
 .application-title h1{
+  margin-bottom: 20px;
   font-size: 2.25rem;
 }
 
-.button-container .next-button{
+.next-button{
   margin-left: auto;
   max-width: 100px;
 }
@@ -1113,166 +1006,131 @@ input[type="number"] {
 
 /* Vehicle Furbisher Alias */
 .page-container {
-  padding: 16px;
-  margin-top: 60px;
-  
-}
-
-.flex {
+  margin-top: 100px;
+  padding: 20px;
   display: flex;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.vehicle-req {
-  display: flex;
-  border: 3px solid #000; 
-  border-radius: 15px; 
-  overflow: hidden;
-}
-
-/* .section {
-  flex: 1;
-  padding: 10px 20px;
-  text-align: center;
-  border-right: 3px solid #000; 
-} */
-
-.section:last-child {
-  border-right: none; 
-}
-
-
-.mb-8 {
-  margin-bottom: 32px;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-}
-
-.p-2 {
-  padding: 8px;
-}
-
-.rounded {
-  border-radius: 4px;
-}
-
-.text-center {
-  text-align: left;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-}
-
-.font-bold {
-  font-weight: bold;
-  margin: 0;
-}
-
-.text-lime-500 {
-  color: #84cc16;
-}
-
-.grid {
-  display: flex;
-}
-
-.grid-cols-1 {
-  grid-template-columns: 1fr;
-}
-
-.gap-8 {
-  gap: 32px;
-}
-
-@media (min-width: 768px) {
-  .grid-cols-2 {
-    grid-template-columns: 1fr 2fr;
-  }
-}
-
-.col-span-2{
+  gap: 20px;
   width: 100%;
+  box-sizing: border-box;
+}
+
+.furbish-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.req-con-vehicle {
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-heading {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .vehicle-container,
 .confirmation-container {
-  background: #f5f5f5;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  margin-right: auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
-.furbish-container{
-  background: #f5f5f5;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  width: 40%;
+.section-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
-.furbish-container h2,
-.vehicle-container h2,
-.confirmation-container h2 {
-  margin-bottom: 16px;
+.vehicle-no {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: left;
+  background-color: orange;
+  padding: 20px;
+  max-width: 80px;
 }
 
-.flex {
+.vehicle-req {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  float: left;
+}
+
+.vehicle-req .vehicle-tag{
+  margin-left: auto;
+}
+
+.vehicle-tag {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.action-buttons .action-icon {
+  margin-right: 5px;
+}
+
+.action-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
   display: flex;
 }
 
-.space-x-2 > * + * {
-  margin-left: 8px;
-}
-
-.text-white {
-  color: #000;
-}
-
-.px-2 {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.py-1 {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.rounded {
-  border-radius: 4px;
-}
-
-.flex.items-center {
+.action-buttons {
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
-.space-x-2 > * + * {
-  margin-left: 8px;
+.left-buttons {
+  display: flex;
+  gap: 20px;
 }
 
-.space-x-1 > * + * {
-  margin-left: 4px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column; 
+    gap: 10px;
+  }
 }
 
-.vehicle-no{
-  background-color: #eab308;
-  padding: 16px;
-  font-weight: 900;
-  max-width: 55px;
+.table-container-vehicle {
+  flex: 1; 
+  background-color: #000;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.styled-table-data {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.styled-table-data th,
+.styled-table-data td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.styled-table-data th {
+  background-color: #444;
+}
+
+.styled-table-data tr:nth-child(even) {
+  background-color: #333; 
 }
 
 .search-bar {
@@ -1282,67 +1140,136 @@ input[type="number"] {
   margin-right: 40px;
 } 
 
-.overflow-x-auto {
-  overflow-x: auto;
-}
-
-.min-w-full {
-  min-width: 100%;
-  background-color: #ffffff;
-  border-radius: 8px;
-}
-
-.bg-yellow-500 {
-  background-color: #eab308;
-}
-
-.bg-purple-500 {
-  background-color: #a855f7;
-}
-
-.bg-black {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.border-b {
-  border-bottom: 1px solid #e5e7eb;
-}
 /* End of Vehicle Furbisher Alias */
 
 
 /* Vehicle Owner Application */
 .application-form-page {
-  max-width: 400px;
-  margin: auto;
-  padding: 1rem;
-  text-align: left;
-  background-color: #000000; /* Black background */
-  color: #faf9f9; /* Text color */
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 100px;
 }
 
-.application-form-header {
-  width: 100%;
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #000000; /* Black background for header */
-  color: #fff;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
-.menu-icon {
+.header h1 {
+  margin: 0;
   font-size: 24px;
+  color: #333;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
+}
+
+.applications-button {
+  font-size: 16px;
+  color: #007bff;
   cursor: pointer;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.applications-button svg {
+  margin-left: 5px;
 }
 
 .application-form-content {
-  width: 100%;
-  background-color: #000000; /* Black background */
   padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.form-group .info-icon {
+  font-size: 18px;
+  color: #777;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.form-group-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.car-icon {
+  font-size: 30px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .applications-button {
+      margin-top: 10px;
+  }
+
+  .application-form-content {
+      padding: 10px;
+  }
+}
+/* End of Vehicle Owner Application */
+
+
+/* Vehicle Owner Application 2 */
+.application-form-page {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.application-form-content {
+  padding: 20px;
 }
 
 .title-container {
@@ -1352,184 +1279,141 @@ input[type="number"] {
   margin-bottom: 20px;
 }
 
-.application-form-content h1 {
-  text-align: center;
-  color: #ffeb3b; /* Yellow color for the title */
-  margin-bottom: 5px;
+.title-container h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
 }
 
-.application-form-content h2 {
-  color: #e91e63; /* Pink color for the subtitle */
-}
-
-.dropdown-button {
-  background-color: #010202; /* Black background for button */
-  color: #fff;
-  border: none;
+.applications-button {
+  font-size: 16px;
+  color: #007bff;
   cursor: pointer;
-  font-size: 1rem;
+  background: none;
+  border: none;
   display: flex;
   align-items: center;
-  padding: 5px 10px;
-  border-radius: 4px;
 }
 
-.dropdown-button:hover {
-  background-color: #333; /* Darker background on hover */
-}
-
-.application-form-content form {
-  display: flex;
-  flex-direction: column;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
+.applications-button svg {
+  margin-left: 5px;
 }
 
 .form-group {
-  margin-bottom: 15px;
-  position: relative;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .form-group label {
   display: block;
+  font-weight: bold;
   margin-bottom: 5px;
-  font-size: 14px;
-  color: #faf9f9;
 }
 
-.form-group input, .form-group select {
-  width: 90%;
+.form-group input[type="text"],
+.form-group input[type="file"] {
+  width: calc(100% - 30px);
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: white; /* White background for inputs */
-  color: black; /* Black text for inputs */
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
-.info-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #faf9f9;
+.form-group .info-icon {
+  font-size: 18px;
+  color: #777;
   cursor: pointer;
+}
+
+.progress-bar {
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 5px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #007bff;
+  height: 100%;
+  transition: width 0.3s ease;
 }
 
 .error {
   color: red;
-  font-size: 0.8rem;
-  margin-top: 5px;
-}
-
-button {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #51d5f3; /* Blue background for the button */
-  color: white; /* White text for the button */
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: #464d53;
+  font-size: 14px;
 }
 
 .form-group-end {
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 }
 
-.car-icon {
-
-  justify-items: left;
-  font-size: 40px;
+.save-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
   cursor: pointer;
-  color: #51d5f3;
-
-}
-.car-icon:hover{
-  color: #464d53;
 }
 
-.footer-icons {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
+.car-icon {
+  font-size: 30px;
+  color: #007bff;
+  cursor: pointer;
 }
-@media (max-width: 600px) {
-  .application-form-page {
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .applications-button {
+      margin-top: 10px;
+  }
+
+  .application-form-content {
       padding: 10px;
   }
 
-  .form-group input, .form-group select {
-      padding: 8px;
-      font-size: 14px;
+  .form-group input[type="file"] {
+      width: calc(100% - 30px);
   }
 
-  .menu-icon, .info-icon{
-      font-size: 20px;
-  }
-  .car-icon {
-      transform: translateX(-10px);
-      font-size: 30px;
-  }
-
-  button {
-      padding: 8px;
-      font-size: 0.9rem;
-  }
-
-  .dropdown-button {
-      font-size: 0.9rem;
-      padding: 4px 8px;
+  .save-button {
+      width: 100%;
+      text-align: center;
   }
 }
-@media (max-width: 400px) {
-  .application-form-page {
-      padding: 14px;
-  }
-
-  .form-group input, .form-group select {
-      padding: 6px;
-      font-size: 12px;
-  }
-
-  .menu-icon, .info-icon{
-      padding: 2px;
-      font-size: 16px;
-  }
-  .car-icon {
-      transform: translateX(-10px);
-      font-size: 30px;
-  }
-
-  button {
-      padding: 6px;
-      font-size: 0.7rem;
-  }
-
-  .dropdown-button {
-      font-size: 0.7rem;
-      padding: 2px 6px;
-  }
-}
-/* End of Vehicle Owner Application */
-
+/* End of Vehicle Owner Application 2 */
 
 
 /* Vehicle Owner Dashboard */
 .dashboard {
-  background-color: #333;
-  color: white;
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.vehicle-id {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
 
 .card-container {
@@ -1538,302 +1422,661 @@ button:hover {
   gap: 20px;
 }
 
+.lease-extension-card{
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .card {
-  background-color: white;
-  color: black;
-  padding: 10px;
-  border-radius: 5px;
-  width: 200px;
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.value {
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card .value {
   font-size: 24px;
+  color: orange;
+  margin-bottom: 20px;
 }
 
-.circle {
-  background-color: yellow;
+.card .circle {
+  background-color: orange;
+  color: #fff;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  line-height: 100px;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto 20px;
 }
 
-.penalty {
-  color: red;
-  font-size: 24px;
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.card table th,
+.card table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.card table th {
+  background-color: #f4f4f4;
+}
+
+.confirmation-dialog {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.confirmation{
+  margin-top: 20px;
+}
+
+.loading-confirmation{
+  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.confirmation-dialog p {
+  margin: 0 0 10px;
+}
+
+.confirmation-dialog button {
+  margin-right: 10px;
+}
+
+.payment-options-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-options-card input {
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: calc(50% - 10px);
+  box-sizing: border-box;
+}
+
+.btn-submit-green{
+  background-color: #1f8b43;
+}
+
+.btn-submit-red{
+  background-color: #b81e1e;
+}
+
+.btn-submit-orange{
+  background-color: orange;
+}
+
+.penalty{
+  color: #b81e1e;
 }
 
 .fixed-button {
-  position: fixed;
   bottom: 20px;
   right: 20px;
+  padding: 10px 20px;
+  background-color: #6a1b9a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  float: right;
+}
+
+.fixed-button:hover {
+  background-color: #4a148c;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .confirmation-dialog,
+  .payment-options-card {
+    position: static;
+    box-shadow: none;
+  }
+
+  .fixed-button {
+    bottom: 10px;
+    right: 10px;
+  }
 }
 /* End of Vehicle Owner Dashboard  */
 
 
 /* Sign up */
-.signup-form {
-  max-width: 400px;
-  margin: auto;
-  padding: 1rem;
-  background-color: #000000; /* Blue background */
-  border-radius: 8px;
-  color: white;
-}
-
-.signup-form h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.signup-form .input-container {
-  margin-bottom: 1rem;
-}
-
-.signup-form .input-container label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: white; /* Label color */
-}
-
-.signup-form .input-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-  border-radius: 4px;
-}
-
-.signup-form .input-wrapper .icon {
-  position: absolute;
-  left:35px;
-  top: 8px;
-  color: #3a4046;
-}
-
-.signup-form .input-wrapper input {
-  padding: 0.5rem 0.5rem 0.5rem 30px;
-  left : 30px;
-  border: none;
-  border-radius: 4px;
-  margin-left: 30px;
-  background: white;
-  color: black; /* Black text for input fields */
-}
-
-.signup-form .password-toggle {
-  position: relative;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #33393f;
-}
-.signup-form .password-toggle-icon {
-  top: 17px
-}
-
-.signup-form button {
+.signup-page {
   width: 100%;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #333; /* Dark background for the button */
-  color: white; /* White text for the button */
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 1rem;
-}
-
-.signup-form button:hover {
-  background-color: #000000;
-}
-
-.signup-form .error {
-  color: red;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  display: block;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .signup-form .input-wrapper input {
-      width: calc(100% - 50px);
-      margin-left: 0;
-      padding-left: 30px;
-  }
-
-  .signup-form .input-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .signup-form .input-wrapper .icon {
-      left: 10px;
-      top: 12px;
-  }
-
-  .signup-form button {
-      width: 100%;
-  }
-}
-/* End of Sign up */
-
-
-/* Accepted Vehicle Owner */
-.vehicle-owner-form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-h2 {
-  color: yellow;
-  display: flex;
-  align-items: center;
-}
-
-.checkmark {
-  background-color: green;
-  border-radius: 50%;
-  padding: 2px 5px;
-  margin-left: 10px;
-}
-
-.id {
-  background-color: black;
-  padding: 5px 10px;
-  border-radius: 15px;
-  margin-left: auto;
-  font-size: 0.8em;
-}
-
-.form-group {
-  background-color: #444;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-input[type="text"],
-input[type="time"],
-input[type="date"],
-textarea {
-  width: 100%;
-  padding: 8px;
-  background-color: white;
-  border: none;
-  color: black;
-  margin-bottom: 10px;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.radio-group {
-  display: flex;
-  gap: 20px;
-}
-
-.map-placeholder {
-  width: 100%;
-  height: 150px;
-  background-color: #666;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+.signup-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.signup-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-personal{
+  text-align: left;
+  width: 49%;
+}
+
+.form-personal input[type="tel"]{
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: white;
+  color: #616161;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-personal label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.input-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+.input-box .icon {
+  font-size: 16px;
+  color: #888;
+  margin-right: 10px;
+}
+
+.password-toggle-icon {
+  font-size: 16px;
+  color: #888;
+  cursor: pointer;
+}
+
+.btn-sign-up{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-sign-up:hover {
+  background-color: #0056b3;
+}
+
+.sign-in {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.sign-in-link {
+  color: #949494;
+  text-decoration: none;
+}
+
+.sign-in-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signup-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-personal {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+}
+
+/* End of Sign up */
+
+
+/* Join Us Page */
+.joinus-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.purple-button, .gray-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.purple-button {
+  background-color: #6a1b9a;
+  color: #fff;
+}
+
+.purple-button:hover {
+  background-color: #4a148c;
+}
+
+.gray-button {
+  background-color: #bdbdbd;
+  color: #333;
+}
+
+.gray-button:hover {
+  background-color: #9e9e9e;
+}
+
+.applications-popup {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.applications-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.applications-popup li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.applications-popup li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .button-group {
+    gap: 10px;
+  }
+
+  .purple-button, .gray-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .applications-popup {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .applications-popup li {
+    padding: 8px 0;
+  }
+}
+
+/* End of Join Us Page */
+
+/* Accepted Vehicle Owner */
+.accepted-vehicle {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 900px;
+  width: 100%;
+  margin-top: 120px;
+  margin-bottom: 80px;
+}
+
+.vehicle-owner-form h2 {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle-owner-form .checkmark {
+  color: green;
+}
+
+.vehicle-owner-form .id {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.form-group-vehicle-owner,
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #000;
+}
+
+.radio-group label {
+  margin-right: 20px;
+}
+
+textarea,
+/* input[type="text"], */
+input[type="time"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.map-container {
   margin-top: 10px;
 }
 
 .time-inputs {
   display: flex;
   align-items: center;
+}
+
+.time-inputs input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.time-inputs span {
+  margin: 0 10px;
+}
+
+.button-container-4 {
+  display: grid;
   gap: 10px;
 }
 
-.calendar-container {
+.button-row {
   display: flex;
-  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 
-.calendar-placeholder {
+.button-row button {
+  flex: 1;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+.form-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .time-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .time-inputs input {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* End of Accepted Vehicle Owner */
+
+
+/* Vehicle Owner */
+.registration-page {
+  max-width: 800px;
   width: 100%;
-  height: 200px;
-  background-color: #666;
-  margin-top: 10px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 100px;
+}
+
+.registration-form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.gender-options {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gender-option {
+  display: flex;
   align-items: center;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
 }
 
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 20px;
 }
 
-button {
-  padding: 10px 20px;
+.submit-button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.submit-button,
-.submit-journey-button,
-.save-button {
-  background-color: #DAA520;
-  color: black;
+.submit-button:hover {
+  background-color: #0056b3;
 }
 
-.edit-button {
-  background-color: #ccc;
-  color: black;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .registration-page {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 }
 
-.add-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 5px 10px;
-  margin-top: 5px;
-}
-/* ... (previous CSS) ... */
-
-.map-container {
-  width: 100%;
-  height: 400px;
-  margin-top: 10px;
-}
-
-.calendar-container .react-datepicker-wrapper {
-  width: 100%;
-}
-
-.calendar-container .react-datepicker__input-container input {
-  width: 100%;
-  padding: 8px;
-  background-color: white;
-  border: none;
-  color: black;
-  margin-bottom: 10px;
-}
-/* End of Accpted Vehicle Owner */
+/* End of Vehicle Owner */
 
 
 /* Accepted Client */
+/* .accepted-client{
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 900px;
+  width: 100%;
+  margin-top: 120px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: ;
+
+} */
+.my-5 {
+  background-color: #fff;
+  min-width: 1200px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 2rem;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .form-label{
   color: #000;
 }
@@ -1873,6 +2116,7 @@ h3{
   display: flex;
 }
 
+
 input[type="date"] {
   padding: 0.5rem;
   border: 1px solid #ccc;
@@ -1897,14 +2141,8 @@ button {
 }
 
 button[type="submit"] {
-  background-color: #000;
+  background-color: #6a1b9a;
   color: #fff;
-  margin-right: auto;
-}
-
-.button-container-4 {
-  display: grid;
-  gap: 10px;
 }
 
 .button-row {
@@ -1920,6 +2158,14 @@ button[type="submit"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.button-row .btn-edit{
+  background-color: #bdbdbd;
+}
+
+.button-row .btn-save{
+  background-color: #965bbb;
 }
 
 .btn-submit {
@@ -1938,18 +2184,12 @@ button[type="submit"] {
 }
 
 .btn-edit {
-  background-color: #5bc0de;
+  background-color: #bdbdbd;
   color: white;
 }
 
-
-button[type="button"] {
-  background-color: #000;
-  color: #fff;
-}
-
 button:hover {
-  opacity: 0.8;
+  background-color: #4a148c;
 }
 
 .container {
@@ -1980,7 +2220,7 @@ textarea,
 input[type="date"],
 input[type="file"] {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input-group {
@@ -2000,6 +2240,13 @@ input[type="file"] {
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .container {
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+    margin-top: 10rem;
+  }
+
+  .my-5 {
     flex-direction: column;
     align-items: center;
     min-width: 100%;
@@ -2051,7 +2298,7 @@ input[type="file"] {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  color: purple;
+  color: #6a1b9a;
 }
 
 .main-title {
@@ -2090,17 +2337,19 @@ input[type="file"] {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .sections {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: row;
   gap: 20px;
 }
-
-
 
 .section-title {
   font-size: 1.5rem;
@@ -2113,7 +2362,13 @@ input[type="file"] {
 }
 
 .how-we-work {
-  margin-top: 20px;
+  margin-top: 40px;
+  
+}
+
+.how-we-work h2{
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 
@@ -2126,6 +2381,7 @@ input[type="file"] {
   .search-bar {
       width: 100%;
       margin-top: 10px;
+      display: none;
   }
 
   .dropdown {
@@ -2135,6 +2391,7 @@ input[type="file"] {
 
   .sections {
       flex-direction: column;
+      width: 100%;
   }
 
   .section {
@@ -2183,7 +2440,6 @@ input[type="file"] {
 
 .apply-button {
   display: inline-block;
-  margin-top: 10px;
   padding: 10px 20px;
   background-color: purple;
   color: #fff;
@@ -2250,6 +2506,10 @@ input[type="file"] {
   text-align: center;
 }
 
+.embed-contact-us{
+  text-align: left;
+}
+
 h1 {
   font-size: 1.5rem;
   margin-bottom: 20px;
@@ -2295,6 +2555,121 @@ h1 {
 /* End of About Us */
 
 
+/* Login page */
+.auth-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+.auth-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.auth-container h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.input-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+
+}
+
+.icon-envelope {
+  font-size: 16px;
+  color: #888;
+  margin-right: 10px;
+}
+
+.icon-toggle-password {
+  font-size: 16px;
+  color: #888;
+  cursor: pointer;
+}
+
+.btn-sign-in, .btn-verify-otp {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-sign-in:hover, .btn-verify-otp:hover {
+  background-color: #0056b3;
+}
+
+.create-account {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.create-account-link {
+  color: #949494;
+  text-decoration: none;
+}
+
+.create-account-link:hover {
+  text-decoration: underline;
+}
+
+.forgot-password{
+  color: #949494;
+  text-decoration: none;
+}
+
+.forgot-password:hover{
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 20px;
+  }
+}
+
+/* End of login page */
+
+
 /* Common Container Styles */
 .Welcome-container,
 .registration-container,
@@ -2315,7 +2690,7 @@ h1 {
   max-height: 100vh;
 }
 .adwhere{
-  color: #007bff;
+  color: #6a1b9a;
 }
 .adwhere .highlight{
   color:white;
@@ -2397,7 +2772,6 @@ select,
 textarea {
   width: 100%;
   padding: 12px;
-  border: none;
   border-radius: 5px;
   background-color: white;
   color: #616161;
@@ -2427,7 +2801,7 @@ input[type="radio"] {
 .signup-form button[type="submit"] {
   width: 100%;
   padding: 15px;
-  background-color: #007bff;
+  background-color: #6a1b9a;
   color: #f4f4f7;
   border: none;
   border-radius: 5px;
@@ -2460,7 +2834,6 @@ input[type="radio"] {
 .Welcome-container h1 span {
   display: block;
   font-size: 48px;
-  margin-top: 0px;
 }
 
 /* Reduce space between buttons */

@@ -9,6 +9,7 @@ import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } fr
 import { Link } from 'react-router-dom';
 import { SidebarData } from './components/SidebarData';
 import './components/Navbar';
+import Navbar from './components/Navbar';
 
 const AcceptedClient: React.FC = () => {
   const [numVehicles, setNumVehicles] = useState<number>(8);
@@ -51,23 +52,8 @@ const AcceptedClient: React.FC = () => {
 
   const showSidebar = () => setSidebar(!sidebar);
 
-  return (
-    
-        
-    <div className="container my-5">
-      {/* <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <li className="dropdown">
-          <a href="#applications" className="dropbtn">
-            Applications
-            <img src={d_arrowIcon} alt="arrow down" className="arrow-down" />
-          </a>
-          <div className="dropdown-content">
-            <a href="#driver">Driver</a>
-            <a href="#client">Client</a>
-            <a href="#vehicle">Vehicle</a>
-          </div>
-        </li>
-      </ul> */}
+  return (  
+    <div className="my-5">
       <div className="navbar justify-between items-center mb-8">
           <Link to='#' className='menu-bars'>
               {sidebar ? (
@@ -112,25 +98,25 @@ const AcceptedClient: React.FC = () => {
         <div className="mb-3 vehicle-refurbishment">
           <label className="form-label">Fully furbished</label>
           <div className="input-group">
-            <button className="btn btn-primary" onClick={() => handleDecrement(setFullyFurbished)}>-</button>
+            <button className="btn-vehicles" onClick={() => handleDecrement(setFullyFurbished)}>-</button>
             <input type="number" className="form-control text-center" value={fullyFurbished} readOnly />
-            <button className="btn btn-primary" onClick={() => handleIncrement(setFullyFurbished)}>+</button>
+            <button className="btn-vehicles" onClick={() => handleIncrement(setFullyFurbished)}>+</button>
           </div>
         </div>
         <div className="mb-3 vehicle-refurbishment">
           <label className="form-label">Half furbished</label>
           <div className="input-group">
-            <button className="btn btn-primary" onClick={() => handleDecrement(setHalfFurbished)}>-</button>
+            <button className="btn-vehicles" onClick={() => handleDecrement(setHalfFurbished)}>-</button>
             <input type="number" className="form-control text-center" value={halfFurbished} readOnly />
-            <button className="btn btn-primary" onClick={() => handleIncrement(setHalfFurbished)}>+</button>
+            <button className="btn-vehicles" onClick={() => handleIncrement(setHalfFurbished)}>+</button>
           </div>
         </div>
         <div className="mb-3 vehicle-refurbishment">
           <label className="form-label">Little furbished</label>
           <div className="input-group">
-            <button className="btn btn-primary" onClick={() => handleDecrement(setLittleFurbished)}>-</button>
+            <button className="btn-vehicles" onClick={() => handleDecrement(setLittleFurbished)}>-</button>
             <input type="number" className="form-control text-center" value={littleFurbished} readOnly />
-            <button className="btn btn-primary" onClick={() => handleIncrement(setLittleFurbished)}>+</button>
+            <button className="btn-vehicles" onClick={() => handleIncrement(setLittleFurbished)}>+</button>
           </div>
         </div>
 
@@ -181,6 +167,16 @@ const AcceptedClient: React.FC = () => {
         <hr style={hrStyles}/>
         <div className="mb-3">
           <input type="file" className="form-control" onChange={handleFileChange} />
+        </div>
+        <div>
+            <label>
+              <input type="radio" name="designFor" value="all" />
+              Design is for ALL vehicles
+            </label>
+            <label>
+              <input type="radio" name="designFor" value="some" />
+              Design is for SOME vehicles
+            </label>
         </div>
 
         <h3 className="mb-4">Extra Note (Additional Notes)</h3>

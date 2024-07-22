@@ -1,6 +1,12 @@
 import './index.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { FaBars, FaCar, FaInfoCircle, FaChevronDown } from 'react-icons/fa';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './components/SidebarData';
+import './components/Navbar';
 
 interface FormData {
     vehicleType: string;
@@ -53,112 +59,145 @@ const VehicleOwnerApplication: React.FC = () => {
         }
     };
 
+    const [sidebar, setSidebar] = useState(false);
+    const showSidebar = () => setSidebar(!sidebar);
+
     return (
-        <div className="application-form-page">
-            <header className="application-form-header">
-                <FaBars className="menu-icon" />
-                <h1>Vehicle Owner</h1>
-            </header>
+        <div className="driver-application-container">
+            <div className="navbar justify-between items-center mb-8">
+                <Link to='#' className='menu-bars'>
+                    {sidebar ? (
+                    <AiIcons.AiOutlineClose onClick={showSidebar} />
+                    ) : (
+                    <FaIcons.FaBars onClick={showSidebar} />
+                    )}
+                </Link>
+                <input type="text" placeholder="Search" className="search-bar" />
+            </div>
+
+            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <ul className='nav-menu-items' onClick={showSidebar}>
+                    <li className='navbar-toggle'>
+                    <Link to='#' className='menu-bars'>
+                        <AiIcons.AiOutlineClose />
+                    </Link>
+                    </li>
+                    {SidebarData.map((item, index) => {
+                    return (
+                        <li key={index} className={item.cName}>
+                        <Link to={item.path}>
+                            {item.icon}
+                            <span>{item.title}</span>
+                        </Link>
+                        </li>
+                    );
+                    })}
+                </ul>
+            </nav>
             <div className="application-form-content">
-                <div className="title-container">
-                    <h2>Application form</h2>
-                    <button className="dropdown-button">
-                        Applications <FaChevronDown />
-                    </button>
-                </div>
                 <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="vehicleType">Vehicle type</label>
-                        <input
-                            type="text"
-                            id="vehicleType"
-                            name="vehicleType"
-                            placeholder="e.g. Hatchback"
-                            value={formData.vehicleType}
-                            onChange={handleChange}
-                            required
-                        />
-                        <FaInfoCircle className="info-icon" />
-                        {errors.vehicleType && <div className="error">{errors.vehicleType}</div>}
+                    <div className="header">
+                        <h1>Vehicle Owner Application</h1>
+                        <div className="applications-button">Applications ▼</div>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="carMake">Car make</label>
-                        <input
-                            type="text"
-                            id="carMake"
-                            name="carMake"
-                            placeholder="e.g. Mazda or Ford"
-                            value={formData.carMake}
-                            onChange={handleChange}
-                            required
-                        />
-                        <FaInfoCircle className="info-icon" />
-                        {errors.carMake && <div className="error">{errors.carMake}</div>}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="nextOfKinName">Next of kin name</label>
-                        <input
-                            type="text"
-                            id="nextOfKinName"
-                            name="nextOfKinName"
-                            placeholder="e.g. Susan"
-                            value={formData.nextOfKinName}
-                            onChange={handleChange}
-                            required
-                        />
-                        <FaInfoCircle className="info-icon" />
-                        {errors.nextOfKinName && <div className="error">{errors.nextOfKinName}</div>}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="nextOfKinSurname">Next of kin surname</label>
-                        <input
-                            type="text"
-                            id="nextOfKinSurname"
-                            name="nextOfKinSurname"
-                            placeholder="e.g. Williams"
-                            value={formData.nextOfKinSurname}
-                            onChange={handleChange}
-                            required
-                        />
-                        <FaInfoCircle className="info-icon" />
-                        {errors.nextOfKinSurname && <div className="error">{errors.nextOfKinSurname}</div>}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="nextOfKinId">Next of kin ID number</label>
-                        <input
-                            type="text"
-                            id="nextOfKinId"
-                            name="nextOfKinId"
-                            placeholder="e.g. 1234567891234"
-                            value={formData.nextOfKinId}
-                            onChange={handleChange}
-                            required
-                        />
-                        <FaInfoCircle className="info-icon" />
-                        {errors.nextOfKinId && <div className="error">{errors.nextOfKinId}</div>}
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="relationship">Relationship with next of kin</label>
-                        <select
-                            id="relationship"
-                            name="relationship"
-                            value={formData.relationship}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Select relationship</option>
-                            <option value="Mother">Mother</option>
-                            <option value="Father">Father</option>
-                            <option value="Sibling">Sibling</option>
-                            <option value="Spouse">Spouse</option>
-                            <option value="Friend">Friend</option>
-                            <option value="Other">Other</option>
-                        </select>
-                        <FaInfoCircle className="info-icon" />
-                        {errors.relationship && <div className="error">{errors.relationship}</div>}
+                    <div className="form-sections">
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="vehicleType">Vehicle type</label>
+                                <input
+                                    type="text"
+                                    id="vehicleType"
+                                    name="vehicleType"
+                                    placeholder="e.g. Hatchback"
+                                    value={formData.vehicleType}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <FaInfoCircle className="info-icon" />
+                                {errors.vehicleType && <div className="error">{errors.vehicleType}</div>}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="carMake">Car make</label>
+                                <input
+                                    type="text"
+                                    id="carMake"
+                                    name="carMake"
+                                    placeholder="e.g. Mazda or Ford"
+                                    value={formData.carMake}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <FaInfoCircle className="info-icon" />
+                                {errors.carMake && <div className="error">{errors.carMake}</div>}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="nextOfKinName">Next of kin name</label>
+                                <input
+                                    type="text"
+                                    id="nextOfKinName"
+                                    name="nextOfKinName"
+                                    placeholder="e.g. Susan"
+                                    value={formData.nextOfKinName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <FaInfoCircle className="info-icon" />
+                                {errors.nextOfKinName && <div className="error">{errors.nextOfKinName}</div>}
+                            </div>
+                        </div>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="nextOfKinSurname">Next of kin surname</label>
+                                <input
+                                    type="text"
+                                    id="nextOfKinSurname"
+                                    name="nextOfKinSurname"
+                                    placeholder="e.g. Williams"
+                                    value={formData.nextOfKinSurname}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <FaInfoCircle className="info-icon" />
+                                {errors.nextOfKinSurname && <div className="error">{errors.nextOfKinSurname}</div>}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="nextOfKinId">Next of kin ID number</label>
+                                <input
+                                    type="text"
+                                    id="nextOfKinId"
+                                    name="nextOfKinId"
+                                    placeholder="e.g. 1234567891234"
+                                    value={formData.nextOfKinId}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <FaInfoCircle className="info-icon" />
+                                {errors.nextOfKinId && <div className="error">{errors.nextOfKinId}</div>}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="relationship">Relationship with next of kin</label>
+                                <select
+                                    id="relationship"
+                                    name="relationship"
+                                    value={formData.relationship}
+                                    onChange={handleChange}
+                                    required
+                                >
+                                    <option value="">Select relationship</option>
+                                    <option value="Mother">Mother</option>
+                                    <option value="Father">Father</option>
+                                    <option value="Sibling">Sibling</option>
+                                    <option value="Spouse">Spouse</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <FaInfoCircle className="info-icon" />
+                                {errors.relationship && <div className="error">{errors.relationship}</div>}
+                            </div>
+                        </div>
                     </div>
                     <div className="form-group-end">
-                        <FaCar className="car-icon" onClick={handleSubmit} />
+                        <button type="button" className="next-button" onClick={handleSubmit}>Next</button>
                     </div>
                 </form>
             </div>

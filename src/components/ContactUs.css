@@ -38,13 +38,8 @@
 .contact-info p {
     margin-bottom: 20px;
     color: #faf9f9;
+    font-weight: 500;
 }
-
-
-
-
-
-
 
 .contact-info {
     flex: 1;
@@ -54,6 +49,10 @@
     padding: 20px;
     font-family: Arial, sans-serif;
     color: #333;
+}
+
+.horizon-icons{
+    font-weight: 500;
 }
 
 .contact-info ul {
@@ -85,13 +84,9 @@
 
 .contact-info strong {
     margin-right: 10px;
-    line-height: 0.8;
+    line-height: 0.6;
+    font-weight: 500;
 }
-
-
-
-
-
 
 .social-media {
     margin-top: 20px;

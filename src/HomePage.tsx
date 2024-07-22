@@ -6,6 +6,7 @@ import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } fr
 import { Link } from 'react-router-dom';
 import { SidebarData } from './components/SidebarData';
 import './components/Navbar';
+import ContactUs from './components/ContactUs';
 
 const Home: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -24,28 +25,28 @@ const Home: React.FC = () => {
             title: 'Client',
             description: 'This is a paragraph text block describing what we do exactly for clients ...',
             linkText: 'become a client',
-            linkHref: '/client',
+            linkHref: '/joinus',
             className: 'client'
         },
         {
             title: 'Vehicle owner',
             description: 'This is a paragraph text block describing what we do exactly for vehicle owners ...',
             linkText: 'become a vehicle owner',
-            linkHref: '/vehicle-owner',
+            linkHref: '/vehicleowner',
             className: 'vehicle-owner'
         },
         {
             title: 'Driver',
             description: 'This is a paragraph text block describing what we do exactly for drivers ...',
             linkText: 'become a driver',
-            linkHref: '/driver',
+            linkHref: '/driverapplicationform',
             className: 'driver'
         },
         {
             title: 'Vehicle furbisher',
             description: 'This is a paragraph text block describing what we do exactly for vehicle furbishers ...',
             linkText: 'become a vehicle furbisher',
-            linkHref: '/vehicle-furbisher',
+            linkHref: '/vehiclefurbishera1',
             className: 'vehicle-furbisher'
         }
     ];
@@ -61,7 +62,7 @@ const Home: React.FC = () => {
     return (
         <div className="home-page">
             <div className="title-and-search">
-                <h1 className="main-title">ADWHERE</h1>
+                <h1 className="main-title">Adwhere</h1>
             </div>
 
             <div className="navbar justify-between items-center mb-8">
@@ -124,6 +125,9 @@ const Home: React.FC = () => {
                     <source src="video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
+            </div>
+            <div className="embed-contact-us">
+                <ContactUs />
             </div>
         </div>
     );

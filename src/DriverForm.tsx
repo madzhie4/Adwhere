@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import './index.css';
 import Header from './components/Header2';
 import Footer from './components/Footer';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './components/SidebarData';
+import './components/Navbar';
 
 const DriverForm: React.FC = () => {
     const [drivingTimes, setDrivingTimes] = useState({ start: '00:00', end: '23:59' });
@@ -39,8 +45,42 @@ const DriverForm: React.FC = () => {
         }
     };
 
+    const [sidebar, setSidebar] = useState(false);
+    const showSidebar = () => setSidebar(!sidebar);
+
     return (
         <div className="driver-form-container">
+            <div className="navbar justify-between items-center mb-8">
+                <Link to='#' className='menu-bars'>
+                    {sidebar ? (
+                    <AiIcons.AiOutlineClose onClick={showSidebar} />
+                    ) : (
+                    <FaIcons.FaBars onClick={showSidebar} />
+                    )}
+                </Link>
+                <input type="text" placeholder="Search" className="search-bar" />
+            </div>
+
+            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <ul className='nav-menu-items' onClick={showSidebar}>
+                    <li className='navbar-toggle'>
+                    <Link to='#' className='menu-bars'>
+                        <AiIcons.AiOutlineClose />
+                    </Link>
+                    </li>
+                    {SidebarData.map((item, index) => {
+                    return (
+                        <li key={index} className={item.cName}>
+                        <Link to={item.path}>
+                            {item.icon}
+                            <span>{item.title}</span>
+                        </Link>
+                        </li>
+                    );
+                    })}
+                </ul>
+            </nav>
+
             <div className="driver-form-page">
                 <h2 className="title">Driver</h2>
                 <form onSubmit={handleSubmit}>
@@ -76,11 +116,15 @@ const DriverForm: React.FC = () => {
                         />
                         {errors.specialNote && <span className="error">{errors.specialNote}</span>}
                     </div>
-                    <div className="form-buttons">
-                        <button type="submit">Submit</button>
-                        <button type="submit">Submit & Go to journey</button>
-                        <button type="button">Save</button>
-                        <button type="button" disabled>Edit</button>
+                    <div className="button-container-4">
+                        <div className="button-row">
+                            <button type="submit" className="btn-submit">Submit</button>
+                            <button type="button" className="btn-submit-journey">Submit & Go to Journey</button>
+                        </div>
+                        <div className="button-row">
+                            <button type="button" className="btn-save">Save</button>
+                            <button type="button" className="btn-edit">Edit</button>
+                        </div>
                     </div>
                 </form>
             </div>

@@ -59,15 +59,21 @@ const Signup: React.FC = () => {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
-        <div className="signup-form">
-            <h2>Create Account</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="input-container">
-                    <label htmlFor="name">Name</label>
-                    <div className="input-wrapper">
-                        <FaUser className="icon" />
-                        <input
+        <div className="signup-page">
+            <div className="signup-container">
+                <h2>Create Account</h2>
+                <form onSubmit={handleSubmit}>
+                <div className="form-row">
+                    <div className="form-personal">
+                        <label htmlFor="name">Name</label>
+                        <div className="input-box">
+                            <FaUser className="icon" />
+                            <input
                             type="text"
                             id="name"
                             name="name"
@@ -75,15 +81,15 @@ const Signup: React.FC = () => {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                        />
+                            />
+                        </div>
+                        {errors.name && <span className="error">{errors.name}</span>}
                     </div>
-                    {errors.name && <span className="error">{errors.name}</span>}
-                </div>
-                <div className="input-container">
-                    <label htmlFor="surname">Surname</label>
-                    <div className="input-wrapper">
-                        <FaUser className="icon" />
-                        <input
+                    <div className="form-personal">
+                        <label htmlFor="surname">Surname</label>
+                        <div className="input-box">
+                            <FaUser className="icon" />
+                            <input
                             type="text"
                             id="surname"
                             name="surname"
@@ -91,31 +97,33 @@ const Signup: React.FC = () => {
                             value={formData.surname}
                             onChange={handleChange}
                             required
-                        />
+                            />
+                        </div>
+                        {errors.surname && <span className="error">{errors.surname}</span>}
                     </div>
-                    {errors.surname && <span className="error">{errors.surname}</span>}
                 </div>
-                <div className="input-container">
-                    <label htmlFor="email">Email</label>
-                    <div className="input-wrapper">
-                        <FaEnvelope className="icon" />
-                        <input
+                <div className="form-row">
+                    <div className="form-personal">
+                        <label htmlFor="email">Email</label>
+                        <div className="input-box">
+                            <FaEnvelope className="icon" />
+                            <input
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="username@email.com"
+                            placeholder="Enter your email"
                             value={formData.email}
                             onChange={handleChange}
                             required
-                        />
+                            />
+                        </div>
+                        {errors.email && <span className="error">{errors.email}</span>}
                     </div>
-                    {errors.email && <span className="error">{errors.email}</span>}
-                </div>
-                <div className="input-container">
-                    <label htmlFor="phone">Phone</label>
-                    <div className="input-wrapper">
-                        <FaPhone className="icon" />
-                        <input
+                    <div className="form-personal">
+                        <label htmlFor="phone">Phone</label>
+                        <div className="input-box">
+                            <FaPhone className="icon" />
+                            <input
                             type="tel"
                             id="phone"
                             name="phone"
@@ -123,50 +131,61 @@ const Signup: React.FC = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             required
-                        />
+                            />
+                        </div>
+                        {errors.phone && <span className="error">{errors.phone}</span>}
                     </div>
-                    {errors.phone && <span className="error">{errors.phone}</span>}
                 </div>
-                <div className="input-container">
-                    <label htmlFor="password">Password</label>
-                    <div className="input-wrapper">
-                        <FaLock className="icon"/>
-                        <input
-                            type={showPassword ? "text" : "password"}
+                <div className="form-row">
+                    <div className="form-personal">
+                        <label htmlFor="password">Password</label>
+                        <div className="input-box">
+                            <FaLock className="icon" />
+                            <input
+                            type={showPassword ? 'text' : 'password'}
                             id="password"
                             name="password"
                             placeholder="Password"
                             value={formData.password}
                             onChange={handleChange}
                             required
-                        />
-                        <div className="password-toggle-icon">
-                            {showConfirmPassword ? <FaEyeSlash/> : <FaEye/>}
+                            />
+                            {showPassword ? (
+                                <FaEyeSlash className="icon-toggle-password" onClick={togglePasswordVisibility} />
+                                ) : (
+                                <FaEye className="icon-toggle-password" onClick={togglePasswordVisibility} />
+                            )}
                         </div>
+                        {errors.password && <span className="error">{errors.password}</span>}
                     </div>
-                    {errors.password && <span className="error">{errors.password}</span>}
-                </div>
-                <div className="input-container">
-                    <label htmlFor="confirmPassword">Confirm Password</label>
-                    <div className="input-wrapper">
-                        <FaLock className="icon"/>
-                        <input
-                            type={showConfirmPassword ? "text" : "password"}
+                    <div className="form-personal">
+                        <label htmlFor="confirmPassword">Confirm Password</label>
+                        <div className="input-box">
+                            <FaLock className="icon" />
+                            <input
+                            type={showConfirmPassword ? 'text' : 'password'}
                             id="confirmPassword"
                             name="confirmPassword"
                             placeholder="Confirm Password"
                             value={formData.confirmPassword}
                             onChange={handleChange}
                             required
-                        />
-                        <div className="password-toggle-icon">
-                            {showConfirmPassword ? <FaEyeSlash/> : <FaEye/>}
+                            />
+                            {showPassword ? (
+                                <FaEyeSlash className="icon-toggle-password" onClick={togglePasswordVisibility} />
+                                ) : (
+                                <FaEye className="icon-toggle-password" onClick={togglePasswordVisibility} />
+                            )}
                         </div>
+                        {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
                     </div>
-                    {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
                 </div>
-                <button type="submit">Sign Up</button>
-            </form>
+                <button className="btn-sign-up">Sign Up</button>
+                <p className="sign-in">
+                    Already have an account? <a href="/login" className="sign-in-link">Login</a>
+                </p>
+                </form>
+            </div>
         </div>
     );
 };

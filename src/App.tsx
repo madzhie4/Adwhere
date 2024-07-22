@@ -17,11 +17,14 @@ import Furbisher from './Furbisher';
 import VehicleOwnerApplication from './VehicleOwnerApplication';
 import VehicleOwnerApplication2 from './VehicleOwnerApplication2';
 import DriverApplicationForm from './DriverApplication';
+import DriverForm from './DriverForm';
 import AcceptedVehicleOwner from './AcceptedVehicleOwner';
 import VehicleOwnerPathway from './VehicleOwnerPathway';
 import ContactUs from './components/ContactUs';
 import Services from './Services';
 import AboutUs from './AboutUs';
+import JoinUs from './JoinUs';
+import ClientJourney from './ClientJourney';
 
 function MainApp() {
   return (
@@ -42,11 +45,14 @@ function MainApp() {
         <Route path="/VehicleOwnerApplication" element={<VehicleOwnerApplication />} />
         <Route path="/VehicleOwnerApplication2" element={<VehicleOwnerApplication2 />} />
         <Route path="/DriverApplicationForm" element={<DriverApplicationForm />} />
+        <Route path="/DriverForm" element={<DriverForm />} />
         <Route path="/AcceptedVehicleOwner" element={<AcceptedVehicleOwner />} />
         <Route path="/VehicleOwnerPathway" element={<VehicleOwnerPathway />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/JoinUs" element={<JoinUs />} />
+        <Route path="/ClientJourney" element={<ClientJourney />} />
       </Routes>
     </Router>
   );

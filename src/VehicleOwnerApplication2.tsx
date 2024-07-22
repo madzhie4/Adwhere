@@ -2,6 +2,12 @@ import './index.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { FaBars, FaCar, FaInfoCircle, FaChevronDown } from 'react-icons/fa';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './components/SidebarData';
+import './components/Navbar';
 
 interface FormData {
     licensePlate: string;
@@ -105,20 +111,47 @@ const VehicleOwnerApplication2: React.FC = () => {
         }
     };
 
+    const [sidebar, setSidebar] = useState(false);
+    const showSidebar = () => setSidebar(!sidebar);
+
     return (
         <div className="application-form-page">
-            <header className="application-form-header">
-                <FaBars className="menu-icon" />
-                <h1>Vehicle Owner</h1>
-            </header>
+            <div className="navbar justify-between items-center mb-8">
+                <Link to='#' className='menu-bars'>
+                    {sidebar ? (
+                    <AiIcons.AiOutlineClose onClick={showSidebar} />
+                    ) : (
+                    <FaIcons.FaBars onClick={showSidebar} />
+                    )}
+                </Link>
+                <input type="text" placeholder="Search" className="search-bar" />
+            </div>
+
+            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <ul className='nav-menu-items' onClick={showSidebar}>
+                    <li className='navbar-toggle'>
+                    <Link to='#' className='menu-bars'>
+                        <AiIcons.AiOutlineClose />
+                    </Link>
+                    </li>
+                    {SidebarData.map((item, index) => {
+                    return (
+                        <li key={index} className={item.cName}>
+                        <Link to={item.path}>
+                            {item.icon}
+                            <span>{item.title}</span>
+                        </Link>
+                        </li>
+                    );
+                    })}
+                </ul>
+            </nav>
             <div className="application-form-content">
-                <div className="title-container">
-                    <h2>Application form</h2>
-                    <button className="dropdown-button">
-                        Applications <FaChevronDown />
-                    </button>
-                </div>
                 <form onSubmit={handleSubmit}>
+                    <div className="header">
+                        <h1>Vehicle Owner Application 2</h1>
+                        <div className="applications-button">Applications ▼</div>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="licensePlate">License plate</label>
                         <input
@@ -223,11 +256,9 @@ const VehicleOwnerApplication2: React.FC = () => {
                             <div className="progress" style={{ width: `${progress.dekraCertificate}%` }}></div>
                         </div>
                     </div>
-                    <div className="form-group-end">
-                        <button type="button" className="save-button">Save</button>
-
-                        <FaCar className="car-icon" onClick={handleSubmit}/>
-
+                    <div className="form-actions">
+                        <button type="submit" className="save-button">Save</button>
+                        <button type="submit" className="apply-button">Submit</button>
                     </div>
                 </form>
             </div>

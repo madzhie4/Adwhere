@@ -6,6 +6,7 @@ import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } fr
 import { Link } from 'react-router-dom';
 import { SidebarData } from './components/SidebarData';
 import './components/Navbar';
+import ContactUs from './components/ContactUs';
 
 const servicesData = [
     {
@@ -104,6 +105,9 @@ const OurServices: React.FC = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="embed-contact-us">
+                <ContactUs />
             </div>
         </div>
     );

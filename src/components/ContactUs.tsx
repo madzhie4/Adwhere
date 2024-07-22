@@ -33,7 +33,7 @@ const ContactUs: React.FC = () => {
                             <li className="horizon-icons">
                                 <FaMapMarkerAlt className="icon" />
                                 <div>
-                                    <strong>Address</strong><br />Lorem ipsum dolor sit
+                                    <strong>Address</strong><br />Cape Town
                                 </div>
                             </li>
                         </ul>

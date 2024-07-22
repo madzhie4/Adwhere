@@ -22,6 +22,7 @@ function Navbar() {
               <FaIcons.FaBars onClick={showSidebar} />
             )}
           </Link>
+          <input type="text" placeholder="Search" className="search-bar" />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>

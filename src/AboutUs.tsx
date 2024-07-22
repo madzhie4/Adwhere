@@ -6,6 +6,7 @@ import { FaFolderOpen, FaDownload, FaArrowLeft, FaArrowRight, FaCheckCircle } fr
 import { Link } from 'react-router-dom';
 import { SidebarData } from './components/SidebarData';
 import './components/Navbar';
+import ContactUs from './components/ContactUs';
 
 const AboutUs = () => {
   const [formData, setFormData] = useState({
@@ -40,6 +41,25 @@ const AboutUs = () => {
           </Link>
           <input type="text" placeholder="Search" className="search-bar" />
       </div>
+      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+              <li className='navbar-toggle'>
+              <Link to='#' className='menu-bars'>
+                  <AiIcons.AiOutlineClose />
+              </Link>
+              </li>
+              {SidebarData.map((item, index) => {
+              return (
+                  <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                  </Link>
+                  </li>
+              );
+              })}
+          </ul>
+      </nav>
       <h1 className="main-title">About Us</h1>
       <p className="about-text">
         Welcome to Adwhere, your premier destination for innovative solutions and
@@ -50,6 +70,9 @@ const AboutUs = () => {
         partnerships, Adwhere is here to help you achieve your goals and exceed your
         expectations.
       </p>
+      <div className="embed-contact-us">
+        <ContactUs />
+      </div>
     </div>
   );
 };
